@@ -1,0 +1,15 @@
+/* Name: Michael Emborsky */
+body{
+    width: 100%;
+    margin: 0 auto;
+}
+header {
+    left: 0;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    position: fixed;
+}
+section {
+    height: 600px;
+}
