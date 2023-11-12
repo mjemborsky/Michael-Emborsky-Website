@@ -31,6 +31,12 @@ header nav ul li, header nav ul li a {
     position: fixed;
     top: 25%;
 }
+.main-triangle {
+    z-index: 1;
+}
+.pointer {
+    z-index: 2;
+}
 main {
     height: 100vh;
     display: flex;

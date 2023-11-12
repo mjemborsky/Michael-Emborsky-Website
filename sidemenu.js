@@ -6,8 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initializing Properties
     var header = document.querySelector(header);
     var chevron = document.getElementById('chevron');
+    var chevronPointer = chevron.querySelector('.pointer')
     var links = document.querySelector('.main-link');
     links.style.display = 'none';
+    chevronPointer.style.zIndex = '2';
     var isExpanded = false; // Flag to track the state of expanded links
     // Expand or Collapse Links
     chevron.addEventListener('click', function(e) {
