@@ -26,6 +26,11 @@ header nav ul li, header nav ul li a {
     padding-top: 20%;
     margin-top: 20%;
 }
+#chevron {
+    left: 0;
+    position: fixed;
+    top: 25%;
+}
 main {
     height: 100vh;
     display: flex;
