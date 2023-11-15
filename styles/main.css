@@ -14,7 +14,7 @@ header {
     flex-direction: column;
     align-items: center;
 }
-header nav ul {
+ul {
     width: 100%;
     text-decoration: none;
     list-style: none;
@@ -45,7 +45,12 @@ main {
     align-items: center;
     background-color: blueviolet;
 }
+#gallery-nav {
 
+}
+#gallery {
+
+}
 footer {
     position: fixed;
     bottom: 0;
