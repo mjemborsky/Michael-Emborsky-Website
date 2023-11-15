@@ -45,38 +45,50 @@ main {
     align-items: center;
     background-color: blueviolet;
 }
-
- /* The grid: Four equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 25%;
-    padding: 10px;
+#gallery-nav {
+    width: 100%;
+    top: 0;
+    position: fixed;
+    justify-content: space-evenly;
 }
-
-  /* Style the images inside the grid */
-  .column img {
-    opacity: 0.8;
+#gallery-nav ul {
+    display: flex;
+    flex-direction: row;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    align-content: space-evenly;
+    width: 90%;
+    height: 20%;
+    position: fixed;
+    bottom: 5%;
+    left: 0;
+    padding-left: 5%;
+    background-color: darkslategrey;
+}
+.album-art-grid {
+    display: none;
+}
+.column img {
+    opacity: 0.5;
     cursor: pointer;
-    max-width: 10%;
-  }
-  
-  .column img:hover {
+    max-width: 40%;
+    padding: 1em;
+    margin: auto auto;
+}
+.column img:hover {
     opacity: 1;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
+}
 /* The expanding image container (positioning is needed to position the close button and the text) */
 .current-art-display {
     position: relative;
     width: 80%;
     margin: auto auto;
     display: none;
+}
+.current-art-display img {
+    max-height: 70%;
 }
   
   /* Expanding image text */

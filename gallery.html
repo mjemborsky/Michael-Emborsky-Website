@@ -7,20 +7,6 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <title>Michael Emborsky</title>
 	    <link rel="stylesheet" href="styles/main.css">
-        <script>
-            function displayArt(img) {
-                    // Get the expanded image
-                var expandImg = document.getElementById("expandedImg");
-                // Get the image text
-                var imgText = document.getElementById("imgtext");
-                // Use the same src in the expanded image as the image being clicked on from the grid
-                expandImg.src = img.src;
-                // Use the value of the alt attribute of the clickable image as text inside the expanded image
-                imgText.innerHTML = img.alt;
-                // Show the container element (hidden with CSS)
-                expandImg.parentElement.style.display = "block";
-            }
-        </script>
     </head>
     <body>
         <header>
@@ -30,7 +16,7 @@
                         <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="gallery.html">Gallery</a>
+                        <a href="gallery.html">Art Gallery</a>
                     </li>
                     <li>
                         <a href="aboutme.html">Contact</a>
@@ -47,28 +33,28 @@
             <nav id="gallery-nav">
                 <ul>
                     <li>
-                        <a>Projects</a>
+                        <a class="projects-link">Projects</a>
                     </li>
                     <li>
-                        <a>Album Art</a>
+                        <a class="album-art-link">Album Art</a>
                     </li>
                 </ul>
             </nav>
             <section id="gallery">
                 <div class="current-art-display">
                     <!-- Expanded image -->
-                    <img id="expandedImg" style="width:100%">
+                    <img id="expandedImg" style="max-width:70%;" >
                   
                     <!-- Image text -->
                     <div id="imgtext"></div>
                 </div>
-                <div class="art-projects-grid">
+                <div class="art-projects-grid" >
                     <div class="row">
                         <div class="column">
-                            <img src="images/ReverseOsmosis.jpg" alt="ReverseOsmosis" onclick="displayArt(this);">
+                            <img src="images/ReverseOsmosis.jpg" alt="Reverse Osmosis Jones" onclick="displayArt(this);">
                         </div>
                         <div class="column">
-                            <img src="images/TheSurveiller.jpg" alt="TheSurveiller" onclick="displayArt(this);">
+                            <img src="images/TheSurveiller.jpg" alt="The Surveiller" onclick="displayArt(this);">
                         </div>
                         <div class="column">
                             <img src="images/Bob.jpg" alt="Bob" onclick="displayArt(this);">
@@ -98,4 +84,33 @@
         </main>
     </body>
     <script src="sidemenu.js"></script>
+    <script>
+        var projectsLink = document.querySelector(".projects-link");
+        var albumArtLink = document.querySelector(".album-art-link");
+        var projectsGrid = document.querySelector(".art-projects-grid");
+        var albumArtGrid = document.querySelector(".album-art-grid");
+        
+        projectsLink.addEventListener("click", function () {
+            projectsGrid.style.display = "block";
+            albumArtGrid.style.display = "none";
+        });
+
+        albumArtLink.addEventListener("click", function () {
+            projectsGrid.style.display = "none";
+            albumArtGrid.style.display = "block";
+        });
+        
+        function displayArt(img) {
+                // Get the expanded image
+            var expandImg = document.getElementById("expandedImg");
+            // Get the image text
+            var imgText = document.getElementById("imgtext");
+            // Use the same src in the expanded image as the image being clicked on from the grid
+            expandImg.src = img.src;
+            // Use the value of the alt attribute of the clickable image as text inside the expanded image
+            imgText.innerHTML = img.alt;
+            // Show the container element (hidden with CSS)
+            expandImg.parentElement.style.display = "block";
+        }
+    </script>
 </html>
