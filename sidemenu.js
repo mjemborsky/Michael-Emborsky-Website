@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initializing Properties
-    var header = document.querySelector(header);
+    var header = document.querySelector('header');
     var chevron = document.getElementById('chevron');
     var chevronPointer = chevron.querySelector('.pointer')
     var links = document.querySelector('.main-link');
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (isExpanded) {
         // Collapse the links
         links.style.display = 'none';
+        header.style.width = '0';
         chevron.style.left = '0';
         isExpanded = false;
       } else {
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         links.style.display = 'flex';
         links.style.alignItems = 'center';
         links.style.flexDirection = 'column';
+        header.style.width = '20%';
         chevron.style.left = '20%';
         isExpanded = true;
       }

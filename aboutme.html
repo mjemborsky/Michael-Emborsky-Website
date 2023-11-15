@@ -23,13 +23,22 @@
                     </li>
                 </ul>
             </nav>
-            <svg id="chevron" width="50" height="100">
-                <polygon points="25 25, 25 75, 25 25" fill="black" class="pointer"></polygon>
-                <polygon points="50 50, 0 100, 0 0" fill="wheat" class="main-triangle"></polygon>
-            </svg> 
-        </header>         
+        </header> 
+        <svg id="chevron" width="50" height="100">
+            <polygon points="25 25, 25 75, 25 25" fill="black" class="pointer"></polygon>
+            <polygon points="50 50, 0 100, 0 0" fill="wheat" class="main-triangle"></polygon>
+        </svg>         
         <main>
             <section>  
+                <form action="../email/subscribe.html" method="get">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" autofocus required><br><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br><br>
+                    <label for="message">Message</label>
+                    <input type="text" id="message" name="message" required><br><br>
+                    <input type="submit" value="Send" id="submitButton">
+                </form>
             </section>
             <footer>
                 &copy; Michael Emborsky -- michaelemborsky@gmail.com

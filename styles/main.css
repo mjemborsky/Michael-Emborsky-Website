@@ -5,7 +5,7 @@ body{
 }
 header {
     left: 0;
-    width: 20%;
+    width: 0;
     height: 100vh;
     position: fixed;
     background-color: aquamarine;
@@ -45,12 +45,61 @@ main {
     align-items: center;
     background-color: blueviolet;
 }
+
+
 #gallery-nav {
+}
+.art-projects-grid, .album-art-grid {
+}
+
+ /* The grid: Four equal columns that floats next to each other */
+ .column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+  }
+  
+  /* Style the images inside the grid */
+  .column img {
+    opacity: 0.8;
+    cursor: pointer;
+    max-width: 10%;
+  }
+  
+  .column img:hover {
+    opacity: 1;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+/* The expanding image container (positioning is needed to position the close button and the text) */
+.current-art-display {
+    position: relative;
+    width: 80%;
+    margin: auto auto;
+    display: none;
+}
+  
+  /* Expanding image text */
+#imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+form {
+    background-color: gainsboro;
+    width: 60%;
 
 }
-#gallery {
 
-}
 footer {
     position: fixed;
     bottom: 0;
