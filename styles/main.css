@@ -46,19 +46,13 @@ main {
     background-color: blueviolet;
 }
 
-
-#gallery-nav {
-}
-.art-projects-grid, .album-art-grid {
-}
-
  /* The grid: Four equal columns that floats next to each other */
- .column {
+.column {
     float: left;
     width: 25%;
     padding: 10px;
-  }
-  
+}
+
   /* Style the images inside the grid */
   .column img {
     opacity: 0.8;
