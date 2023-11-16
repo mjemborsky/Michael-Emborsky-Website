@@ -13,13 +13,13 @@
             <nav id="main_nav">
                 <ul class="main-link">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.html">Coding Projects</a>
                     </li>
                     <li>
                         <a href="gallery.html">Art Gallery</a>
                     </li>
                     <li>
-                        <a href="aboutme.html">Contact</a>
+                        <a href="aboutme.html">Contact and More</a>
                     </li>
                 </ul>
             </nav>
@@ -51,7 +51,7 @@
                 <div class="art-projects-grid" >
                     <div class="row">
                         <div class="column">
-                            <img src="images/ReverseOsmosis.jpg" alt="Reverse Osmosis Jones" onclick="displayArt(this);">
+                            <img class="first-one" src="images/ReverseOsmosis.jpg" alt="Reverse Osmosis Jones" onclick="displayArt(this);">
                         </div>
                         <div class="column">
                             <img src="images/TheSurveiller.jpg" alt="The Surveiller" onclick="displayArt(this);">
@@ -67,7 +67,7 @@
                 <div class="album-art-grid">
                     <div class="row">
                         <div class="column">
-                            <img src="images/PhaseShift.jpg" alt="PhaseShift" onclick="displayArt(this);">
+                            <img class="first-two" src="images/PhaseShift.jpg" alt="PhaseShift" onclick="displayArt(this);">
                         </div>
                         <div class="column">
                             <img src="images/State.png" alt="State" onclick="displayArt(this);">
@@ -89,15 +89,19 @@
         var albumArtLink = document.querySelector(".album-art-link");
         var projectsGrid = document.querySelector(".art-projects-grid");
         var albumArtGrid = document.querySelector(".album-art-grid");
+        var firstImage = document.querySelector('.first-one');
+        var firstImageTwo = document.querySelector('.first-two');
         
         projectsLink.addEventListener("click", function () {
             projectsGrid.style.display = "block";
             albumArtGrid.style.display = "none";
+            displayArt(firstImage);
         });
 
         albumArtLink.addEventListener("click", function () {
             projectsGrid.style.display = "none";
             albumArtGrid.style.display = "block";
+            displayArt(firstImageTwo);
         });
         
         function displayArt(img) {
@@ -112,5 +116,7 @@
             // Show the container element (hidden with CSS)
             expandImg.parentElement.style.display = "block";
         }
+
+        displayArt(firstImage);
     </script>
 </html>
