@@ -110,6 +110,12 @@ section {
 .coding-header {
     position: absolute;
     top: 15%;
+    left: 10%;
+}
+.coding-header-link {
+    position: absolute;
+    top: 16%;
+    right: 10%;
 }
 #gallery-nav {
     width: 100%;
