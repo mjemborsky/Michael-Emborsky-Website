@@ -159,8 +159,8 @@ section {
 .current-art-display img {
     object-fit: contain;
     margin: auto auto;
-    max-width: 84em;
-    max-height: 42em;
+    max-width: 90%;
+    max-height: 70%;
 
 }
   
