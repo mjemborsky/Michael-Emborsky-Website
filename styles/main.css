@@ -42,7 +42,7 @@ header nav ul li a.current {
 .pointer {
     z-index: 2;
 }
-main {
+section {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -50,12 +50,13 @@ main {
     align-items: center;
     background-color: blueviolet;
     width: 100%;
+    margin: 0 auto;
 }
 
 .home-header {
     display: flex;
     flex-direction: column;
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
     height: 15%;
@@ -74,10 +75,10 @@ main {
     background-color: gray;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 20em);
-    gap: 1rem;
+    grid-template-rows: repeat(2, 13em);
+    gap: 0.5em;
     top: 24%;
-    bottom: 6%;
+    bottom: 10%;
     right: 10%;
     left: 10%;
 }
@@ -85,9 +86,10 @@ main {
 .coding-project {
     position: relative;
     background-color: midnightblue;
-    width: 90%;
-    height: 90%;
+    width: 95%;
+    height: 95%;
     text-align: center;
+    top: 0.75em;
     margin: auto auto;
 }
 .coding-project h1, .coding-project a, .coding-project p {
@@ -107,21 +109,14 @@ main {
 }
 .coding-header {
     position: absolute;
-    margin: 0 auto;
-    width: 100%;
-    top: 17%;
+    top: 15%;
 }
-#gallery {
-    height: 70%;
-    width: 50%;
-    position: relative;
-}
-
 #gallery-nav {
     width: 100%;
     top: 0;
     position: fixed;
     display: flex;
+    background-color: blanchedalmond;
 }
 #gallery-nav ul {
     display: flex;
@@ -159,13 +154,14 @@ main {
 }
 /* The expanding image container (positioning is needed to position the close button and the text) */
 .current-art-display {
-    position: relative;
-    width: 80%;
-    margin: auto auto;
     display: none;
 }
 .current-art-display img {
     object-fit: contain;
+    margin: auto auto;
+    max-width: 84em;
+    max-height: 42em;
+
 }
   
   /* Expanding image text */
