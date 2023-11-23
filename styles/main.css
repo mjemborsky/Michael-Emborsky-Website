@@ -79,8 +79,8 @@ section {
     gap: 0.5em;
     top: 24%;
     bottom: 10%;
-    right: 10%;
-    left: 10%;
+    right: 5%;
+    left: 5%;
 }
 
 .coding-project {
@@ -96,26 +96,40 @@ section {
     color: white;
 }
 .coding-project h1 {
-    float: right;
-    padding-right: 1em;
+    margin-bottom: 0;
 }
 .coding-project a {
-    position: absolute;
-    bottom: 1em;
+    float: left;
+    height: 90%;
+    margin: auto 0;
+    padding-top: 1.5em;
+    padding-left: 1rem;
+
 }
 .coding-project p {
-    float: inline-end;
-    clear: right;
+    width: 50%;
+    float: right;
+    padding-right: 5%;
 }
 .coding-header {
     position: absolute;
     top: 15%;
     left: 10%;
 }
+.coding-header img {
+    float: left;
+    background-color: black;
+    width: 200px;
+    height: 100px;
+    max-width: 10%;
+    position: relative;
+
+}
+
 .coding-header-link {
     position: absolute;
     top: 16%;
-    right: 10%;
+    right: 5%;
 }
 #gallery-nav {
     width: 100%;
