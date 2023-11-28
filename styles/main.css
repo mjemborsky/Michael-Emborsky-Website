@@ -35,13 +35,21 @@ header nav ul li a.current {
     left: 0;
     position: fixed;
     top: 25%;
+    z-index: 1;
+    transition: width 1s ease-in-out;
 }
 .main-triangle {
     z-index: 1;
 }
 .pointer {
     z-index: 2;
+    background-color: black;
 }
+
+
+
+
+
 section {
     height: 100vh;
     display: flex;
@@ -75,10 +83,10 @@ section {
     background-color: gray;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 15em);
+    grid-template-rows: repeat(2, 13em);
     gap: 0.5em;
     top: 24%;
-    bottom: 11%;
+    bottom: 10%;
     right: 5%;
     left: 5%;
 }
@@ -146,23 +154,28 @@ section {
     display: flex;
     flex-direction: row;
     align-content: space-evenly;
-    width: 90%;
+    width: 100%;
     height: 20%;
     position: fixed;
     bottom: 5%;
     left: 0;
-    padding-left: 5%;
-    background-color: darkslategrey;
+    background-color: black;
+    opacity: .8;
 }
 .album-art-grid {
     display: none;
 }
+.column {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .column img {
     opacity: 0.5;
     cursor: pointer;
-    max-width: 40%;
-    padding: 1em;
-    margin: auto auto;
+    max-height: 7em;
 }
 .column img:hover {
     opacity: 1;
@@ -185,10 +198,11 @@ section {
   /* Expanding image text */
 #imgtext {
     position: absolute;
-    bottom: 15px;
-    left: 15px;
     color: white;
     font-size: 20px;
+    width: 16%;
+    right: 1em;
+    top: 3em;
 }
 
 form {
