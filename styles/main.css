@@ -174,14 +174,12 @@ section {
     height: 85%;
     top: 10%;
     margin: auto auto;
+    justify-content: center;
 }
 .current-art-display img {
-    object-fit: contain;
-    margin: auto auto;
     max-width: 90%;
-    max-height: 70%;
-    position: relative;
-
+    max-height: 75%;
+    padding-top: 0.5em;
 }
   
   /* Expanding image text */
