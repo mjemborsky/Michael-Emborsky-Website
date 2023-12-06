@@ -1,0 +1,25 @@
+.coding-header-link {
+    display: none;
+}
+section {
+    background: none;
+    margin: 2em;
+}
+#coding {
+    display: block;
+    flex-direction: column;
+    background: none;
+}
+.coding-project {
+    display: block;
+    background-color: bisque;
+}
+.coding-project a, .coding-project p, .coding-project h1 {
+    color: black;
+}
+svg {
+    display: none;
+}
+footer {
+    bottom: 0;
+}

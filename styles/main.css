@@ -1,4 +1,11 @@
 /* Name: Michael Emborsky */
+
+/* Custom Color Gradients */
+html {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
 body{
     width: 100%;
     margin: 0 auto;
@@ -8,28 +15,29 @@ header {
     width: 0;
     height: 100vh;
     position: fixed;
-    background-color: aquamarine;
+    background: rgb(62,66,138);
+    background: radial-gradient(circle, rgba(62,66,138,1) 0%, rgba(55,184,190,1) 49%, rgba(54,144,183,1) 57%, rgba(53,109,178,1) 69%, rgba(53,115,179,1) 74%, rgba(52,73,172,1) 100%);
     z-index: 4;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 ul {
     width: 100%;
-    text-decoration: none;
     list-style: none;
     padding-left: 0;
 }
 header nav ul li, header nav ul li a {
-    width: 100%;
-    height: 10%;
-    padding-top: 20%;
-    margin-top: 20%;
+    padding-top: 4em;
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
 }
 
 header nav ul li a.current {
-    opacity: .5;
-    color: lightcoral;
+    opacity: .7;
+    color: lightgreen;
 }
 #chevron {
     left: 0;
@@ -56,7 +64,8 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: blueviolet;
+    background: rgb(195,34,179);
+    background: linear-gradient(0deg, rgba(195,34,179,1) 0%, rgba(253,187,45,1) 100%); 
     width: 100%;
     margin: 0 auto;
 }
@@ -69,7 +78,7 @@ section {
     width: 100%;
     height: 15%;
     justify-content: center;
-    background-color: blanchedalmond;
+    background-color: var(--headerGradient);
     left: 0;
 }
 .home-header h1, .home-header h3 {
@@ -77,13 +86,16 @@ section {
     padding-top: 0.5%;
     padding-left: 25%;
 }
+.home-header h1 {
+    font-size: 200%;
+}
 
 #coding {
     position: absolute;
     background-color: gray;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 13em);
+    grid-template-columns: repeat(2, 49.5%);
+    grid-template-rows: repeat(2, 47%);
     gap: 0.5em;
     top: 24%;
     bottom: 10%;
@@ -105,20 +117,21 @@ section {
 }
 .coding-project h1 {
     margin-bottom: 0;
+    font-size: 200%;
 }
 .coding-project a {
     float: left;
-    height: 70%;
-    width: 30%;
+    width: 35%;
     margin: auto auto;
-    padding-top: 3rem;
     padding-left: 2em;
-
+    padding-top: 8%;
 }
 .coding-project p {
     width: 50%;
     float: right;
     padding-right: 5%;
+    padding-top: 2%;
+    font-size: 125%;
 }
 .coding-header {
     position: absolute;
@@ -184,15 +197,16 @@ section {
 .current-art-display {
     display: none;
     width: 100%;
-    height: 85%;
-    top: 10%;
+    height: 100%;
     margin: auto auto;
     justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 .current-art-display img {
     max-width: 90%;
-    max-height: 75%;
+    max-height: 65%;
     padding-top: 0.5em;
+    padding-top: 4%;
 }
   
   /* Expanding image text */
@@ -204,33 +218,100 @@ section {
     right: 1em;
     top: 3em;
 }
+.aboutme {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(45,226,253);
+    background: linear-gradient(0deg, rgba(45,226,253,1) 0%, rgba(35,34,195,1) 100%);
+    border-radius: 0 0 300% 300%;
+}
+
+.aboutme p {
+    color: wheat;
+    font-size: 150%;
+}
+.aboutme a {
+    color: black
+}
+.form-link {
+    display: flex;
+    width: 5%;
+    height: 5%;
+    justify-content: center;
+    align-items: center;
+}
+.form-link div {
+    width: 100%;
+    height: 100%;
+    background-color: bisque;
+    opacity: .7;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.form-link div p {
+    text-decoration: none;
+    color: black;
+}
 
 form {
     background-color: gainsboro;
-    width: 30%;
-    margin: 0 auto;
-    height: 12em;
+    width: 40%;
+    margin: 0 0;
+    height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
+#message {
+    width: 80%;
+}
 form input, form label {
-    padding: .25em;
+    padding: 1%;
 }
 .inquiries {
     display: block;
     align-items: center;
     margin: 0 auto;
-    
+    padding-bottom: 1%;
 }
 
 footer {
-    position: absolute;
+    position: fixed;
     margin: 0 auto;
     width: 100%;
-    bottom: 0;
-    padding-bottom: .8%;
+    bottom: 1%;
+    padding-left: 40%;
+
 
 }
+
+@media screen and (max-width: 900px) {
+    .coding-project h1 {
+        font-size: 100%;
+    }
+    .coding-project p {
+        font-size: 75%;
+    }
+    .coding-header {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .coding-project h1 {
+        display: none;
+    }
+    .coding-project p {
+        font-size: 75%;
+        width: 80%;
+    }
+}
+
