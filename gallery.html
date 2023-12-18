@@ -12,11 +12,6 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <title>Michael Emborsky</title>
 	    <link rel="stylesheet" href="styles/main.css">
-        <style>
-            footer {
-                background-color: rgba(0, 0, 0, 0.6);
-            }
-        </style>
     </head>
     <body>
         <header>
@@ -47,20 +42,24 @@
                 <div class="current-art-display">
                     <img id="expandedImg" >
                     <div id="imgtext"></div>
+                    <div id="imgdesc"></div>
                 </div>
                 <div class="art-projects-grid" >
                     <div class="row">
                         <div class="column">
-                            <img class="first-one" src="images/ReverseOsmosis.jpg" alt="Reverse Osmosis Jones" onclick="displayArt(this);">
+                            <img class="first-one" src="images/SkatePark.png" alt="Skate Utopia" desc="hello" onclick="displayArt(this)">
                         </div>
                         <div class="column">
-                            <img src="images/TheSurveiller.jpg" alt="The Surveiller" onclick="displayArt(this);">
+                            <img src="images/ReverseOsmosis.jpg" alt="Reverse Osmosis Jones" desc="h" onclick="displayArt(this);">
                         </div>
                         <div class="column">
-                            <img src="images/Bob.jpg" alt="Bob" onclick="displayArt(this);">
+                            <img src="images/TheSurveiller.jpg" alt="The Surveiller" desc="h" onclick="displayArt(this);">
                         </div>
                         <div class="column">
-                            <img src="images/Versicarus.jpg" alt="Versicarus" onclick="displayArt(this);">
+                            <img src="images/Bob.jpg" alt="Bob" desc="h" onclick="displayArt(this);">
+                        </div>
+                        <div class="column">
+                            <img src="images/Versicarus.jpg" alt="Versicarus" desc="h" onclick="displayArt(this);">
                         </div>
                     </div>
                 </div>
@@ -108,10 +107,13 @@
             var expandImg = document.getElementById("expandedImg");
             // Get the image text
             var imgText = document.getElementById("imgtext");
+            var imgDesc = document.getElementById("imgdesc")
             // Use the same src in the expanded image as the image being clicked on from the grid
             expandImg.src = img.src;
             // Use the value of the alt attribute of the clickable image as text inside the expanded image
             imgText.innerHTML = img.alt;
+
+            imgDesc.innerHTML = img.desc;
             // Show the container element (hidden with CSS)
             expandImg.parentElement.style.display = "flex";
         }

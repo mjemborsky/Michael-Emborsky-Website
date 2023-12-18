@@ -16,6 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var links = document.querySelector('.main-link');
     links.style.display = 'none';
     var isExpanded = false; // Flag to track the state of expanded links
+    let width = screen.width;
+    if (width <= 430) {
+      var isMobile = true;
+    } else {
+      var isMobile = false;
+    }
     chevronPointer.style.transformOrigin = 'center';
     function rotateIn() {
       chevronPointer.style.transition = 'transform 0.8s ease-in-out'; // Add transition for smooth animation
@@ -40,8 +46,13 @@ document.addEventListener('DOMContentLoaded', function() {
         links.style.display = 'flex';
         links.style.alignItems = 'center';
         links.style.flexDirection = 'column';
-        header.style.width = '20%';
-        chevron.style.left = '20%';
+        if (isMobile == true) {
+          header.style.width = '60%';
+          chevron.style.left = '60%';
+        } else {
+          header.style.width = '20%';
+          chevron.style.left = '20%';
+        }
         isExpanded = true;
         chevronPointer.setAttribute('transform', `rotate(180 25 50)`);
         rotateIn();

@@ -201,6 +201,7 @@ section {
     position: fixed;
     display: flex;
     background-color: blanchedalmond;
+    z-index: 1;
 }
 #gallery-nav ul {
     display: flex;
@@ -235,7 +236,7 @@ section {
 .column img {
     opacity: 0.7;
     cursor: pointer;
-    max-height: 160%;
+    max-height: 100%;
 }
 .column img:hover {
     opacity: 1;
@@ -250,7 +251,7 @@ section {
     background-color: rgba(0, 0, 0, 0.6);
 }
 .current-art-display img {
-    max-width: 90%;
+    max-width: 80%;
     max-height: 65%;
     padding-top: 0.5em;
     padding-top: 4%;
@@ -260,10 +261,24 @@ section {
 #imgtext {
     position: absolute;
     color: white;
-    font-size: 20px;
-    width: 16%;
+    font-size: 26px;
     right: 1em;
     top: 3em;
+    z-index: 1;
+}
+#imgdesc {
+    position: absolute;
+    width: 10%;
+    right: 0;
+    font-size: 16px;
+    text-align: right;
+    height: 30%;
+    padding-right: 2em;
+    padding-top: 8em;
+    background-color: #405b80;
+    color: white;
+    z-index: 0;
+    border-radius: 0 0 0 100%;
 }
 .aboutme {
     position: absolute;
