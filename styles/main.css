@@ -105,7 +105,11 @@ section {
     height: 15%;
     justify-content: center;
     background-color: var(--headerGradient);
+    color: whitesmoke;
+    -webkit-text-stroke: 0.025em black;
     left: 0;
+    clip-path: polygon(25% 20%, 100% 20%, 100% 50%, 100% 95%, 25% 95%, 20% 50%);
+    background-color: rgba(195,34,179,1);
 }
 .home-header h1, .home-header h3 {
     margin: 0;
@@ -123,55 +127,59 @@ section {
     width: 88%;
     height: 70%;
     top: 10%;
-    justify-content:space-around;
-    align-items:center;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
 }
 .coding-column {
     position: relative;
     display: flex;
     flex-direction: column;
     width: 48%;
-    height: 95%;
+    height: 90%;
     margin: 0;
-    align-items:center;
+    align-items: center;
     justify-content: space-between;
 }
 .coding-project {
     position: relative;
     background-color: #3ea6cf;
     width: 100%;
-    height: 100%;
+    height: 48%;
     text-align: center;
-    margin-top: 1%;
-    margin-bottom: 1%; 
-}
-.coding-project h1, .coding-project a, .coding-project p {
     color: white;
-}
-.coding-project h1 {
-    margin-bottom: 0;
-    font-size: 200%;
-    text-align: right;
-    padding-right: 2%;
-    padding-bottom: 2%;
+    border-radius: 5% 20% 5% 20%;
 }
 .coding-project a {
     float: left;
     max-width: 40%;
     height: 90%;
-    margin: auto auto;
-
+    margin: 0;
+    width: 40%;
+    padding-left: 2%;
+    padding-top: 5%;
 }
 .coding-project a img {
     max-height: 80%;
     max-width: 100%;
 }
-.coding-project p {
-    width: 50%;
+.coding-project h1 {
     float: right;
-    padding-right: 5%;
+    margin-bottom: 0;
+    font-size: 200%;
+    text-align: center;
+    width: 55%;
+}
+.coding-project p {
+    float: right;
+    position: relative;
+    text-align: right;
     font-size: 125%;
     margin: 0;
+    width: 55%;
+    height: 60%;
+    padding-right: 2%;
+    padding-top: 5%;
 }
 .coding-header {
     position: absolute;
@@ -261,14 +269,13 @@ section {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 45%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgb(45,226,253);
     background: linear-gradient(0deg, rgba(45,226,253,1) 0%, rgba(35,34,195,1) 100%);
-    border-radius: 0 0 300% 300%;
+    border-radius: 0 0 150% 150%;
 }
 
 .aboutme p {
@@ -278,6 +285,20 @@ section {
 .aboutme a {
     color: black
 }
+
+.aboutme-form {
+    width: 80%;
+    background-color: #428ced;
+    height: 30%;
+    position: absolute;
+    bottom: 0%;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .form-link {
     display: flex;
     width: 5%;
