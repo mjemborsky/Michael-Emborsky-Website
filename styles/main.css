@@ -418,9 +418,6 @@ footer {
   left: 0px;
 }
 
-
-
-
 @media screen and (max-height < 1000px) {
     .print-button {
         padding: 0;

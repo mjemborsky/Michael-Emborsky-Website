@@ -14,7 +14,7 @@
         <meta name="description" content="The portfolio page for Michael Emborsky with content related to programming, art and music.">
         <meta name="keywords" content="Michael, Emborsky, Michael-Emborsky, portfolio, programming, illustration">
 	    <link rel="stylesheet" href="styles/main.css">
-        <link rel="stylesheet" media="print" href="styles/print.css">
+        <link rel="stylesheet" type="text/css" href="printing/print.min.css">
     </head>
     <body>
         <header>
@@ -79,10 +79,11 @@
             </div>
             <footer>
                 <p>
-                    Michael Emborsky ----- <button class="print-button" onclick="window.print();return false;">Print Resume</button> ----- michaelemborsky@gmail.com 
+                    Michael Emborsky ----- <button class="print-button" onclick="printJS('images/MichaelEmborskyResume.pdf')">Print Resume</button> ----- michaelemborsky@gmail.com 
                 </p>
             </footer>
         </section>
     </body>
     <script src="js/sidemenu.js"></script>
+    <script src="printing/print.min.js"></script>
 </html>
