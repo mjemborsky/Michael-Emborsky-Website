@@ -5,6 +5,7 @@
 
 <!-- TO DO -->
 <!-- Add description of pic, add new pic, -->
+<!-- jpg instead of png (faster, lazy loading) -->
 
 <html lang="en">
     <head>
@@ -19,8 +20,8 @@
         <header>
             <nav id="main_nav">
                 <ul class="main-link">
-                        <a href="index.html" class="current">Coding Projects</a>
-                        <a href="gallery.html">Art Gallery</a>
+                        <a href="index.html">Coding Projects</a>
+                        <a href="gallery.html" class="current">Art Gallery</a>
                         <a href="aboutme.html">Contact and More</a>
                 </ul>
             </nav>
@@ -85,6 +86,7 @@
             <footer>
                 &copy; Michael Emborsky -- michaelemborsky@gmail.com
             </footer>
+        <div class="background-bar"></div>
     </body>
     <script src="js/sidemenu.js"></script>
     <script>
@@ -124,7 +126,6 @@
             // Show the container element (hidden with CSS)
             expandImg.parentElement.style.display = "flex";
         }
-
         displayArt(firstImage);
     </script>
 </html>
