@@ -431,11 +431,12 @@ footer {
     -webkit-user-select: none;
     touch-action: manipulation;
     color: white;
+    z-index: 1;
 }
 
 .print-button::after  {
   content: "";
-  background-color: rgba(253,187,45,1);
+  background-color: #0A2239;
   width: 100%;
   z-index: 0;
   position: absolute;
@@ -443,7 +444,8 @@ footer {
   bottom: 0.4rem;
   left: 0.5rem;
   transition: 0.2s;
-  opacity: 0.3;
+  opacity: 0.25;
+  color: white;
 }
 
 .print-button:hover:after {
@@ -533,6 +535,9 @@ footer {
     .art-projects-grid, .album-art-grid {
         flex-wrap: wrap;
         height: 20%;
+    }
+    footer {
+        font-size: 60%;
     }
 }
 

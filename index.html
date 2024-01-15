@@ -17,6 +17,17 @@
         <meta name="keywords" content="Michael, Emborsky, Michael-Emborsky, portfolio, programming, illustration">
 	    <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" media="print" type="text/css" href="printing/print.min.css">
+        <script>
+            function printPDF() {
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = 'images/MichaelEmborskyResume.pdf';
+                document.body.appendChild(iframe);
+                iframe.onload = function() {
+                    iframe.contentWindow.print();
+                };
+            }
+        </script>
     </head>
     <body>
         <header>
@@ -80,13 +91,10 @@
                 </div>
             </div>
             <footer>
-                <p>
-                    Michael Emborsky ----- <button class="print-button" onclick="printJS('images/MichaelEmborskyResume.pdf')">Print Resume</button> ----- michaelemborsky@gmail.com 
-                </p>
+                    Michael Emborsky ----- <button class="print-button" onclick="printPDF()">Print/Save Resume as PDF</button> ----- michaelemborsky@gmail.com 
             </footer>
             <div class="background-bar"></div>
         </section>
     </body>
     <script src="js/sidemenu.js"></script>
-    <script src="printing/print.min.js"></script>
 </html>
