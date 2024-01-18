@@ -109,7 +109,7 @@ section {
     -webkit-text-stroke: 0.025em black;
     left: 0;
     clip-path: polygon(25% 20%, 100% 20%, 100% 50%, 100% 95%, 25% 95%, 20% 50%);
-    background-color: #D93F51 ;
+    background-color: #D93F51;
     z-index: 1;
 }
 .home-header h1, .home-header h3 {
@@ -123,8 +123,8 @@ section {
 
 .coding-title {
     position: absolute;
-    left: 7%;
-    width: 30%;
+    left: 3%;
+    width: 50%;
     background-color:#503A80;
     height: 50%;
     top: 0;
@@ -135,16 +135,18 @@ section {
 }
 .coding-header {
     position: relative;
-    padding-top: 30%;
+    padding-top: 20%;
     color: wheat;
     margin: 0;
 }
+
 .coding-header-link {
     position: relative;
     width: 100%;
     margin: 0;
     padding-top: 2%;
     font-size: 1em;
+    color: #D93F51;
 }
 #coding {
     position: relative;
@@ -178,13 +180,14 @@ section {
     border-radius: 5% 20% 5% 20%;
 }
 .coding-project a {
+    position: relative;
     float: left;
     max-width: 40%;
     height: 90%;
     margin: 0;
     width: 40%;
     padding-left: 2%;
-    padding-top: 5%;
+    padding-top: 10%;
 }
 .coding-project a img {
     max-height: 80%;
@@ -196,6 +199,7 @@ section {
     font-size: 200%;
     text-align: center;
     width: 55%;
+    padding-right: 2%;
 }
 .coding-project p {
     float: right;
@@ -356,6 +360,8 @@ section {
 .aboutme p {
     margin: 0;
     text-align: center;
+    position: relative;
+    width: 60%;
 }
 .aboutme a {
     color: black;
@@ -378,7 +384,7 @@ section {
 }
 
 .aboutme-form h2 {
-    padding-top: 30%;
+    padding-top: 20%;
 }
 .form-link {
     display: flex;
@@ -470,22 +476,56 @@ footer {
   left: 0px;
 }
 
-@media screen and (max-height < 1000px) {
+
+@media screen and (max-height: 525px) {
     .print-button {
         padding: 0;
     }
+    .home-header {
+        clip-path: polygon(25% 0%, 100% 0%, 100% 50%, 100% 100%, 25% 100%, 20% 50%);
+    }
 }
 
+@media screen and (max-width: 1100px) {
+    .coding-header {
+        padding-top: 25%;
+    }
+
+}
 
 @media screen and (max-width: 900px) {
     .coding-project h1 {
         font-size: 100%;
     }
     .coding-project p {
-        font-size: 75%;
+        font-size: 100%;
+    }
+    .coding-header {
+        padding-top: 33%;
+    }
+    #coding {
+        width: 100%;
     }
 }
 
+@media screen and (max-width: 666px) {
+    .coding-title {
+        width: 70%;
+        height: 60%;
+    }
+    .coding-project h1 {
+        float:right;
+    }
+
+
+
+}
+@media screen and (max-width: 550px) {
+    .coding-header {
+        padding-top: 45%;
+        font-size: 1.2em;
+    }
+}
 
 @media screen and (max-width: 430px) {
     .row {
@@ -503,9 +543,18 @@ footer {
     }
     .coding-column {
         width: 90%;
+        height: 50%;
     }
     .coding-project {
         margin-top: 2%;
+    }
+    .coding-project a {
+        padding-top: 8%;
+    }
+    .coding-project p {
+        font-size: 80%;
+        width: 50%;
+        text-align: center;
     }
     .coding-title {
         width: 80%;
@@ -514,7 +563,7 @@ footer {
     }
     .coding-header {
         font-size: 1em;
-        padding-top: 50%;
+        padding-top: 40%;
         padding-left: 0;
         width: auto;
     }
@@ -569,3 +618,11 @@ footer {
     }
 }
 
+@media screen and (max-width: 430px) {
+    .coding-header {
+        padding-top: 45%;
+    }
+    .home-header {
+        font-size: .8em;
+    }
+}
