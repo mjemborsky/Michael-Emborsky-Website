@@ -329,31 +329,44 @@ section {
     padding-top: 4em;
 
 }
-.aboutme {
+.aboutme-shape {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 50%;
+    height: 70%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background: linear-gradient(0deg, rgba(45,226,253,1) 0%, rgba(35,34,195,1) 100%);
+    background: linear-gradient(0deg, rgba(45,226,253,1) 23%, rgba(35,34,195,1) 100%);
     border-radius: 0 0 150% 150%;
+    clip-path: polygon(50% 100%, 10% 0, 90% 0);
+    z-index: 2;
 }
 
-.aboutme p {
+.aboutme {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: wheat;
     font-size: 150%;
+    width: 60%;
+    margin: 0;
+    padding-top: 10%;
+}
+.aboutme p {
+    margin: 0;
+    text-align: center;
 }
 .aboutme a {
-    color: black
+    color: black;
+    text-align: center;
+    padding-top: 20%;
 }
 
 .aboutme-form {
-    width: 80%;
+    width: 100%;
     background-color: #428ced;
-    height: 30%;
+    height: 60%;
     position: absolute;
     bottom: 0%;
     clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
@@ -361,8 +374,12 @@ section {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    z-index: 1;
 }
 
+.aboutme-form h2 {
+    padding-top: 30%;
+}
 .form-link {
     display: flex;
     width: 5%;
@@ -481,6 +498,9 @@ footer {
         flex-direction: column;
         top: 9%
     }
+    .home-header {
+        clip-path: polygon(25% 0%, 100% 0%, 100% 50%, 100% 100%, 25% 100%, 10% 50%);
+    }
     .coding-column {
         width: 90%;
     }
@@ -538,6 +558,14 @@ footer {
     }
     footer {
         font-size: 60%;
+    }
+    .aboutme-shape {
+        clip-path: polygon(50% 100%, -10% 0, 110% 0);
+    }
+    .aboutme-form {
+        width: 100%;
+        clip-path: polygon(25% 0%, 75% 0%, 120% 100%, -20% 100%);
+        height: 60%;
     }
 }
 
