@@ -14,7 +14,8 @@ header {
     width: 0;
     height: 100vh;
     position: fixed;
-    background-color: #428ced;
+    background-color: #fb949b;
+    outline: 5px solid #0A2239;
     z-index: 4;
     margin: 0;
     padding: 0;
@@ -51,14 +52,15 @@ header nav ul a.current {
     left: 0;
     position: fixed;
     top: 15%;
-    z-index: 1;
+    left: 0;
+    z-index: 3;
     transition: out 1s ease-in-out;
 }
 .main-triangle {
-    z-index: 1;
+    z-index: 3;
 }
 .pointer {
-    z-index: 2;
+    z-index: 4;
     background-color: black;
 }
 
@@ -75,7 +77,7 @@ header nav ul a.current {
 }
 
 body {
-    background: linear-gradient(0deg, #BDA0BC 0%, #0A2239 55%, #FFD275 60%, #DA4167 100%);
+    background: linear-gradient(0deg, #b7a3d8 0%, #0A2239 55%, #fbde45 60%, #DA4167 100%);
 }
 
 section {
@@ -105,27 +107,27 @@ section {
     height: 15%;
     justify-content: center;
     background-color: var(--headerGradient);
-    color: whitesmoke;
-    -webkit-text-stroke: 0.025em black;
+    color: #041119;
     left: 0;
     clip-path: polygon(25% 20%, 100% 20%, 100% 50%, 100% 95%, 25% 95%, 20% 50%);
-    background-color: #D93F51;
+    background-color: #fb949b;
     z-index: 1;
 }
 .home-header h1, .home-header h3 {
     margin: 0;
-    padding-top: 0.5%;
+    padding-top: 0;
     padding-left: 25%;
 }
 .home-header h1 {
     font-size: 200%;
+    padding-top: 1%;
 }
 
 .coding-title {
     position: absolute;
     left: 3%;
     width: 50%;
-    background-color:#503A80;
+    background-color:#5458ba;
     height: 50%;
     top: 0;
     display: flex;
@@ -152,7 +154,7 @@ section {
     position: relative;
     background-color: #0A2239;
     display: flex;
-    width: 88%;
+    width: 95%;
     height: 70%;
     top: 10%;
     justify-content: space-evenly;
@@ -172,7 +174,7 @@ section {
 }
 .coding-project {
     position: relative;
-    background-color: #BDA0BC;
+    background-color: #b7a3d8;
     width: 100%;
     height: 48%;
     text-align: center;
@@ -186,8 +188,8 @@ section {
     height: 90%;
     margin: 0;
     width: 40%;
-    padding-left: 2%;
-    padding-top: 6%;
+    padding-left: 3%;
+    padding-top: 7%;
 }
 .coding-project a img {
     max-height: 80%;
@@ -195,17 +197,18 @@ section {
 }
 .coding-project h1 {
     float: right;
-    margin-bottom: 0;
-    font-size: 200%;
+    margin: 0;
+    font-size: 175%;
     text-align: center;
     width: 55%;
     padding-right: 2%;
+    padding-top: 5%;
 }
 .coding-project p {
     float: right;
     position: relative;
-    text-align: right;
-    font-size: 125%;
+    text-align: center;
+    font-size: 115%;
     margin: 0;
     width: 45%;
     height: 60%;
@@ -533,6 +536,9 @@ footer {
     .coding-project p {
         font-size: 100%;
     }
+    .coding-project a {
+        padding-top: 15%;
+    }
     .coding-header {
         padding-top: 33%;
     }
@@ -582,7 +588,7 @@ footer {
         margin-top: 2%;
     }
     .coding-project a {
-        padding-top: 8%;
+        padding-top: 7%;
     }
     .coding-project p {
         font-size: 80%;

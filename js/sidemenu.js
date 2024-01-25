@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         header.style.width = '0';
         chevron.style.left = '0';
         isExpanded = false;
-        chevronPointer.setAttribute('transform', `rotate(0 25 50)`);
+        chevronPointer.setAttribute('transform', `rotate(180 25 50)`);
         rotateOut();
       } else {
         // Expand the links
