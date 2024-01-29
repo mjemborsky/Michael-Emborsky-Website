@@ -58,10 +58,15 @@ header nav ul a.current {
 }
 .main-triangle {
     z-index: 3;
+    stroke: none;
+    stroke-width: 0;
 }
 .pointer {
     z-index: 4;
     background-color: black;
+    stroke: #041119;
+    stroke-width: 3px;
+    stroke-linecap: round;
 }
 
 @keyframes spin {
@@ -124,7 +129,7 @@ section {
 }
 
 .coding-title {
-    position: absolute;
+    position: fixed;
     left: 3%;
     width: 50%;
     background-color:#5458ba;
@@ -134,10 +139,11 @@ section {
     flex-direction: column;
     align-items:center;
     clip-path: polygon(100% 0, 0 0, 50% 100%);
+    text-decoration: none;
 }
 .coding-header {
     position: relative;
-    padding-top: 20%;
+    padding-top: 18%;
     color: wheat;
     margin: 0;
 }
@@ -149,6 +155,7 @@ section {
     padding-top: 2%;
     font-size: 1em;
     color: #D93F51;
+    text-decoration: none;
 }
 #coding {
     position: relative;
@@ -187,13 +194,13 @@ section {
     max-width: 40%;
     height: 90%;
     margin: 0;
-    width: 40%;
-    padding-left: 3%;
-    padding-top: 7%;
+    width: 38%;
+    padding-left: 4%;
+    padding-top: 5%;
 }
 .coding-project a img {
     max-height: 80%;
-    max-width: 100%;
+    max-width: 90%;
 }
 .coding-project h1 {
     float: right;
@@ -218,6 +225,17 @@ section {
 .preview {
     position: relative;
 }
+.coding-project:hover {
+    background-color: #b8a7d4;
+}
+
+
+
+
+
+
+/* Art Gallery Page */
+
 #gallery-nav {
     width: 100%;
     top: 0;
@@ -269,7 +287,7 @@ section {
 .column img:hover {
     opacity: 1;
 }
-/* The expanding image container (positioning is needed to position the close button and the text) */
+
 .current-art-display {
     display: none;
     width: 100%;
@@ -299,7 +317,6 @@ section {
     z-index: 0;
     border-radius: 0 0 0 100%;
 }
-  /* Expanding image text */
 #imgtext {
     position: relative;
     color: white;
@@ -336,6 +353,9 @@ section {
     padding-top: 4em;
 
 }
+
+/* About Me Page */
+
 .aboutme-shape {
     position: absolute;
     top: 0;
@@ -410,36 +430,50 @@ section {
     color: black;
 }
 
+/* Form Page */
+
+.inquiries {
+    position: absolute;
+    display: block;
+    align-items: center;
+    margin: 0 auto;
+    top: 25%;
+    z-index: 2;
+    width: 30%;
+    text-align: center;
+
+}
 form {
-    background-color: gainsboro;
-    width: 40%;
+    background: linear-gradient(0deg, #DA4167 0%, #fbde45 100%);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+    width: 68%;
     margin: 0 0;
-    height: 40%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 2;
-    position: relative;
+    position: absolute;
+    bottom: 0;
+}
+form input, form label, form textarea {
+    padding: 0.5%;
 }
 #message {
-    width: 80%;
+    width: 60%;
     height: 40%;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
     resize: none;
 }
-form input, form label {
-    padding: 1%;
-}
-.inquiries {
-    display: block;
-    align-items: center;
-    margin: 0 auto;
-    padding-bottom: 3%;
-    z-index: 2;
-}
+
+
+
+
+/* Form Confirmation Page */
+
 .confirmation {
     position: absolute;
     top: 20%;
@@ -513,7 +547,29 @@ footer {
 }
 
 
-@media screen and (max-height: 525px) {
+
+
+/* Media Queries */
+
+
+@media screen and (max-height: 800px) {
+    .coding-header {
+        padding-top: 13%;
+    }
+    .coding-project a {
+        padding-top: 2%;
+    }
+    
+}
+ 
+
+@media screen and (max-height: 600px) {
+    .coding-project h1 {
+        padding-top: 2%;
+    }
+    .coding-project p {
+        padding-top: 2%;
+    }
     .print-button {
         padding: 0;
     }
