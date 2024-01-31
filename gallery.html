@@ -26,21 +26,15 @@
                 </ul>
             </nav>
             <svg id="chevron" width="50" height="100">
-                <polygon points="50 50, 0 100, 0 0" fill="Moccasin" class="main-triangle"></polygon>
-                <polygon points="35 50, 0 65, 0 35" fill="LightSeaGreen" class="pointer"></polygon>
+                <polygon points="50 50, 0 100, 0 0" fill="#0A2239" class="main-triangle"></polygon>
+                <polygon points="50 50, 0 70, 0 30" fill="#fb949b" class="pointer"></polygon>
             </svg>
         </header>        
             <!-- gallery has sub categories for: Album Artwork, Other Projects -->
             <section id="gallery">
                 <nav id="gallery-nav">
-                    <ul>
-                        <li>
-                            <a class="projects-link">Projects</a>
-                        </li>
-                        <li>
-                            <a class="album-art-link">Album Art</a>
-                        </li>
-                    </ul>
+                    <a class="projects-link"><div class="projects-link">Art Projects</div></a>
+                    <a class="album-art-link">Album Art</a>
                 </nav>
                 <div class="current-art-display">
                     <img id="expandedImg" >
@@ -83,7 +77,7 @@
                     </div>
                 </div> 
             </section>
-            <footer>
+            <footer class="turn-black">
                 &copy; Michael Emborsky -- michaelemborsky@gmail.com
             </footer>
         <div class="background-bar"></div>
@@ -98,14 +92,14 @@
         var firstImageTwo = document.querySelector('.first-two');
         
         projectsLink.addEventListener("click", function () {
-            projectsGrid.style.display = "block";
+            projectsGrid.style.display = "flex";
             albumArtGrid.style.display = "none";
             displayArt(firstImage);
         });
 
         albumArtLink.addEventListener("click", function () {
             projectsGrid.style.display = "none";
-            albumArtGrid.style.display = "block";
+            albumArtGrid.style.display = "flex";
             displayArt(firstImageTwo);
         });
         
