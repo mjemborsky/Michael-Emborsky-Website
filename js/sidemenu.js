@@ -11,6 +11,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initializing Properties
     var header = document.querySelector('header');
+    var currentPage = document.querySelector('.current');
     var chevron = document.getElementById('chevron');
     var chevronPointer = chevron.querySelector('.pointer')
     var links = document.querySelector('.main-link');
