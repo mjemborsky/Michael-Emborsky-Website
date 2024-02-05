@@ -4,8 +4,8 @@
 
 
 <!-- TO DO -->
-<!-- Fix header with buttons -->
-<!-- jpg instead of png? (faster, lazy loading) -->
+<!-- Fix header color and button press -->
+<!-- faster, lazy loading -->
 
 <html lang="en">
     <head>
@@ -30,56 +30,55 @@
                 <polygon points="50 50, 0 70, 0 30" fill="#fb949b" class="pointer"></polygon>
             </svg>
         </header>        
-            <!-- gallery has sub categories for: Album Artwork, Other Projects -->
-            <section id="gallery">
-                <nav id="gallery-nav">
-                    <a class="projects-link"><div class="projects-link">Art Projects</div></a>
-                    <a class="album-art-link">Album Art</a>
-                </nav>
-                <div class="current-art-display">
-                    <img id="expandedImg" >
-                    <div class="side-art-desc">
-                        <div id="imgtext"></div>
-                        <p id="imgdesc"></p>
-                        <a href="#" id="downloadLink" download>Download</a>
+        <section id="gallery">
+            <nav id="gallery-nav">
+                <a class="projects-link"><div class="projects-link">Art Projects</div></a>
+                <a class="album-art-link">Album Art</a>
+            </nav>
+            <div class="current-art-display">
+                <img id="expandedImg" >
+                <div class="side-art-desc">
+                    <div id="imgtext"></div>
+                    <p id="imgdesc"></p>
+                    <a href="#" id="downloadLink" download>Download</a>
+                </div>
+            </div>
+            <div class="art-projects-grid" >
+                <div class="row">
+                    <div class="column">
+                        <img class="first-one" src="images/SkatePark.png" alt="Skate Utopia" data-desc="Designed for a Skate Park, this piece features 8 separate pieces which are organized into a coherent design." onclick="displayArt(this)">
+                    </div>
+                    <div class="column">
+                        <img src="images/ReverseOsmosis.jpg" alt="Reverse Osmosis Jones" data-desc="Designed for a narrative assignment, this piece tells the story of a heroic reverse osmosis jones to the rescue." onclick="displayArt(this);">
+                    </div>
+                    <div class="column">
+                        <img src="images/TheSurveiller.jpg" alt="The Surveiller" data-desc="Created for a surrealism assignment, this piece depicts a person watching themselves, but are they the only ones watching?" onclick="displayArt(this);">
+                    </div>
+                    <div class="column">
+                        <img src="images/Bob.jpg" alt="Bob" data-desc="Created for a portrait assignment in Illustrator, this is Bob the peacock." onclick="displayArt(this);">
+                    </div>
+                    <div class="column">
+                        <img src="images/Versicarus.jpg" alt="Versicarus" data-desc="An abstract piece created with Illustrator with a made up name." onclick="displayArt(this);">
                     </div>
                 </div>
-                <div class="art-projects-grid" >
-                    <div class="row">
-                        <div class="column">
-                            <img class="first-one" src="images/SkatePark.png" alt="Skate Utopia" data-desc="Designed for a Skate Park, this piece features 8 separate pieces which are organized into a coherent design." onclick="displayArt(this)">
-                        </div>
-                        <div class="column">
-                            <img src="images/ReverseOsmosis.jpg" alt="Reverse Osmosis Jones" data-desc="Designed for a narrative assignment, this piece tells the story of a heroic reverse osmosis jones to the rescue." onclick="displayArt(this);">
-                        </div>
-                        <div class="column">
-                            <img src="images/TheSurveiller.jpg" alt="The Surveiller" data-desc="Created for a surrealism assignment, this piece depicts a person watching themselves, but are they the only ones watching?" onclick="displayArt(this);">
-                        </div>
-                        <div class="column">
-                            <img src="images/Bob.jpg" alt="Bob" data-desc="Created for a portrait assignment in Illustrator, this is Bob the peacock." onclick="displayArt(this);">
-                        </div>
-                        <div class="column">
-                            <img src="images/Versicarus.jpg" alt="Versicarus" data-desc="An abstract piece created with Illustrator with a made up name." onclick="displayArt(this);">
-                        </div>
+            </div>
+            <div class="album-art-grid">
+                <div class="row">
+                    <div class="column">
+                        <img class="first-two" src="images/PhaseShift.jpg" alt="Phase Shift" data-desc="Album Cover Art for the Lotus State album, Phase Shift" onclick="displayArt(this);">
+                    </div>
+                    <div class="column">
+                        <img src="images/State.png" alt="State" data-desc="Album Cover Art for the Lotus State album, State" onclick="displayArt(this);">
+                    </div>
+                    <div class="column">
+                        <img src="images/Lotus.jpg" alt="Lotus" data-desc="Album Cover Art for the Lotus State album, Lotus" onclick="displayArt(this);">
                     </div>
                 </div>
-                <div class="album-art-grid">
-                    <div class="row">
-                        <div class="column">
-                            <img class="first-two" src="images/PhaseShift.jpg" alt="Phase Shift" data-desc="Album Cover Art for the Lotus State album, Phase Shift" onclick="displayArt(this);">
-                        </div>
-                        <div class="column">
-                            <img src="images/State.png" alt="State" data-desc="Album Cover Art for the Lotus State album, State" onclick="displayArt(this);">
-                        </div>
-                        <div class="column">
-                            <img src="images/Lotus.jpg" alt="Lotus" data-desc="Album Cover Art for the Lotus State album, Lotus" onclick="displayArt(this);">
-                        </div>
-                    </div>
-                </div> 
-            </section>
+            </div>
             <footer class="turn-black">
                 &copy; Michael Emborsky -- michaelemborsky@gmail.com
             </footer>
+        </section>
         <div class="background-bar"></div>
     </body>
     <script src="js/sidemenu.js"></script>
@@ -90,34 +89,25 @@
         var albumArtGrid = document.querySelector(".album-art-grid");
         var firstImage = document.querySelector('.first-one');
         var firstImageTwo = document.querySelector('.first-two');
-        
         projectsLink.addEventListener("click", function () {
             projectsGrid.style.display = "flex";
             albumArtGrid.style.display = "none";
             displayArt(firstImage);
         });
-
         albumArtLink.addEventListener("click", function () {
             projectsGrid.style.display = "none";
             albumArtGrid.style.display = "flex";
             displayArt(firstImageTwo);
         });
-        
         function displayArt(img) {
-                // Get the expanded image
             var expandImg = document.getElementById("expandedImg");
-            // Get the image text
             var imgText = document.getElementById("imgtext");
             var imgDesc = document.getElementById("imgdesc")
             var downloadLink = document.getElementById("downloadLink");
-            // Use the same src in the expanded image as the image being clicked on from the grid
             expandImg.src = img.src;
-            // Use the value of the alt attribute of the clickable image as text inside the expanded image
             imgText.innerHTML = img.alt;
-
             imgDesc.innerHTML = img.getAttribute("data-desc");
             downloadLink.href = img.src;
-            // Show the container element (hidden with CSS)
             expandImg.parentElement.style.display = "flex";
         }
         displayArt(firstImage);
