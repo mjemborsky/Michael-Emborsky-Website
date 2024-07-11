@@ -14,7 +14,7 @@ header {
     width: 0;
     height: 100vh;
     position: fixed;
-    background-color: #509afa;
+    background-color: #4E598C;
     outline: 3px solid #0A2239;
     z-index: 4;
     margin: 0;
@@ -38,7 +38,7 @@ header nav ul a {
     align-items: center;
     text-decoration: none;
     color: #0A2239;
-    background-color: #85d0ff;
+    background-color: #81A4CD;
     font-size: 1.3em;
     margin: 5% 0% 5% 0%;
     border-radius: 100% 20% / 200% 20% ;
@@ -78,7 +78,7 @@ header nav ul a {
 }
 
 body {
-    background: linear-gradient(0deg, #b7a3d8 0%, #0A2239 55%, #fbde45 60%, #DA4167 100%);
+    background: linear-gradient(0deg, #81A4CD 0%, #2B2D42 55%, #FFE882 60%, #A93F55 100%);
 }
 
 section {
@@ -95,7 +95,7 @@ section {
     position: absolute;
     width: 100%;
     height: 5%;
-    background-color: #0A2239;
+    background-color: #2B2D42;
     top: 40%;
     z-index: -1;
 }
@@ -111,7 +111,7 @@ section {
     color: #041119;
     left: 0;
     clip-path: polygon(25% 20%, 100% 20%, 100% 50%, 100% 95%, 25% 95%, 20% 50%);
-    background-color: #fb949b;
+    background-color: #F29CA3;
     z-index: 1;
 }
 .home-header h1, .home-header h3 {
@@ -128,7 +128,7 @@ section {
     position: fixed;
     left: 3%;
     width: 50%;
-    background-color:#5458ba;
+    background-color:#4E598C;
     height: 50%;
     top: 0;
     display: flex;
@@ -142,6 +142,7 @@ section {
     padding-top: 20%;
     color: wheat;
     margin: 0;
+    text-decoration: none;
 }
 
 .coding-header-link {
@@ -150,12 +151,12 @@ section {
     margin: 0;
     padding-top: 2%;
     font-size: 1em;
-    color: #D93F51;
+    color: #2B2D42;
     text-decoration: none;
 }
 #coding {
     position: relative;
-    background-color: #0A2239;
+    background-color: #2B2D42;
     display: flex;
     width: 95%;
     height: 70%;
@@ -177,11 +178,11 @@ section {
 }
 .coding-project {
     position: relative;
-    background-color: #b7a3d8;
+    background-color: #81A4CD;
     width: 100%;
     height: 48%;
     text-align: center;
-    color: #0A2239;
+    color: #2B2D42;
     border-radius: 5% 20% 5% 20%;
 }
 .coding-project a {
@@ -222,7 +223,7 @@ section {
     position: relative;
 }
 .coding-project:hover {
-    background-color: #b8a7d4;
+    background-color: #A7CCED;
 }
 
 
@@ -237,7 +238,7 @@ section {
     top: 0;
     display: flex;
     position: fixed;
-    background-color: #fb949b;
+    background-color: #F29CA3;
     z-index: 1;
     height: 7%;
     justify-content: space-evenly;
@@ -246,8 +247,8 @@ section {
 
 .projects-link, .album-art-link {
     position: relative;
-    background-color: aquamarine;
-    width: 7%;
+    background-color: #81A4CD;
+    width: 10%;
     height: 75%;
     border-radius: 50% 50% 25% 25%;
     text-align: center;
