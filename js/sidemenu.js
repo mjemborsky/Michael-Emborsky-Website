@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
         links.style.alignItems = 'center';
         links.style.flexDirection = 'column';
         if (isMobile == true) {
-          header.style.width = '60%';
-          chevron.style.left = '60%';
+          header.style.width = '70%';
+          chevron.style.left = '70%';
         } else {
           header.style.width = '20%';
           chevron.style.left = '20%';
