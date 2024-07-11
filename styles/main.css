@@ -664,16 +664,21 @@ footer {
     }
     .home-header {
         clip-path: polygon(25% 0%, 100% 0%, 100% 50%, 100% 100%, 25% 100%, 10% 50%);
+        font-size: .8em;
+    }
+    .preview {
+        padding-top: 8%;
     }
     .coding-column {
         width: 90%;
         height: 50%;
+        padding-top: 3%;
     }
     .coding-project {
         margin-top: 2%;
     }
-    .coding-project a {
-        padding-top: 7%;
+    .coding-project h1 {
+        padding-top: 2%
     }
     .coding-project p {
         font-size: 80%;
@@ -684,6 +689,7 @@ footer {
         width: 80%;
         height: 70%;
         left: 0;
+        padding-top: 4%;
     }
     .coding-header {
         font-size: 1em;
@@ -781,14 +787,5 @@ footer {
     .back-to-home-link {
         z-index: 4;
         width: 50%;
-    }
-}
-
-@media screen and (max-width: 430px) {
-    .coding-header {
-        padding-top: 45%;
-    }
-    .home-header {
-        font-size: .8em;
     }
 }
