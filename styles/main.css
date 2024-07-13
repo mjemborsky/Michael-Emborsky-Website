@@ -3,12 +3,14 @@
 /* Custom Color Gradients */
 html {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-body{
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
     width: 100%;
     height: 100vh;
     margin: 0 auto;
 }
+
 header {
     left: 0;
     width: 0;
@@ -402,21 +404,12 @@ section {
     bottom: 0%;
     clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     z-index: 1;
 }
-
-.aboutme-form h1 {
-    top: 11%;
-    position: absolute;
-    right: 29%;
-}
 .picOfMe {
     position: absolute;
-    width: 15%;
-    height: auto;
     left: 29%;
     top: 15%;
     max-width: 18%;
@@ -432,8 +425,9 @@ section {
     text-align: right;
 }
 .aboutme-form h2 {
+    padding-top: 32%;
     bottom: 10%;
-    position: absolute;
+    position: relative;
 }
 .form-link {
     display: flex;
@@ -757,20 +751,38 @@ footer {
         height: 60%;
         z-index: 3;
     }
+    .aboutme-form h1 {
+        top: 0;
+        right: 15%;
+    }
+    .picOfMe {
+        position: relative;
+        left: 0;
+        top: 0;
+        max-width: 35%;
+    }
+    .bio {
+        position: relative;
+        width: 80%;
+        text-align: center;
+        right: 0;
+        top: 0;
+    }
     .aboutme-form h2 {
-        width: 50%;
+        width: 100%;
         text-align: center;
         position: absolute;
-        bottom: 40%;
-        height: 30%;
+        bottom: 5%;
+        height: 10%;
+        font-size: 90%;
     }
     .form-link {
         width: 40%;
-        height: 10%;
+        height: 7%;
         background-color: aquamarine;
         text-decoration: none;
         position: absolute;
-        bottom: 25%;
+        bottom: 5%;
     }
     .inquiries {
         position: absolute;
