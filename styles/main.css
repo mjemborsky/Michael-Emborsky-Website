@@ -39,6 +39,7 @@ header nav ul a {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     text-decoration: none;
     color: #0A2239;
     background-color: #81A4CD;
@@ -410,7 +411,7 @@ section {
     font-size: 150%;
     width: 60%;
     margin: 0;
-    padding-top: 7%;
+    padding-top: 5%;
 }
 .aboutme p {
     margin: 0;
@@ -421,8 +422,13 @@ section {
 .aboutme a {
     color: black;
     text-align: center;
-    top: 10%;
+    top: 7%;
     position: relative;
+    max-width: 15%;
+}
+
+.aboutme a img {
+    max-width: 100%;
 }
 
 .aboutme-form {
