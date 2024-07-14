@@ -68,7 +68,7 @@
                 <div class="row">
                     <div class="chevronLeft"></div>
                     <div class="column pageOne">
-                        <img id="first-two" src="images/PhaseShift.jpg" alt="Phase Shift" data-desc="Album Cover Art for the Lotus State album, Phase Shift" onclick="displayArt(this);">
+                        <img id="first-two" src="images/Momentum.jpg" alt="Momentum" data-desc="Cover Art for the Lotus State EP, Momentum" onclick="displayArt(this);">
                     </div>
                     <div class="column pageOne">
                         <img src="images/PhaseShift.jpg" alt="Phase Shift" data-desc="Album Cover Art for the Lotus State album, Phase Shift" onclick="displayArt(this);">
@@ -164,15 +164,15 @@
         function showPage(page) {
             if (!isMobile()) {
                 if (page === 'pageOne') {
-                    chevronRight.forEach(chevron => chevron.style.opacity = "1");
-                    pageOne.forEach(column => column.style.display = 'block');
+                    chevronRight.forEach(chevron => chevron.style.opacity = "0.8");
+                    pageOne.forEach(column => column.style.display = 'flex');
                     pageTwo.forEach(column => column.style.display = 'none');
-                    chevronLeft.forEach(chevron => chevron.style.opacity = "0.4");
+                    chevronLeft.forEach(chevron => chevron.style.opacity = "0.3");
                 } else {
-                    chevronLeft.forEach(chevron => chevron.style.opacity = "1");
+                    chevronLeft.forEach(chevron => chevron.style.opacity = "0.8");
                     pageOne.forEach(column => column.style.display = 'none');
-                    pageTwo.forEach(column => column.style.display = 'block');
-                    chevronRight.forEach(chevron => chevron.style.opacity = "0.4");
+                    pageTwo.forEach(column => column.style.display = 'flex');
+                    chevronRight.forEach(chevron => chevron.style.opacity = "0.3");
                 }
             }
         }
@@ -191,14 +191,14 @@
 
         function updateVisibility() {
             currentColumns.forEach((column, index) => {
-                column.style.display = (index === currentIndex) ? 'block' : 'none';
+                column.style.display = (index === currentIndex) ? 'flex' : 'none';
             });
             chevronLeft.forEach(chevron => chevron.style.opacity = (currentIndex === 0) ? '0.4' : '1');
             chevronRight.forEach(chevron => chevron.style.opacity = (currentIndex === currentColumns.length - 1) ? '0.4' : '1');
         }
 
         function showAllColumns(columns) {
-            columns.forEach(column => column.style.display = 'block');
+            columns.forEach(column => column.style.display = 'flex');
             chevronLeft.forEach(chevron => chevron.style.opacity = '1');
             chevronRight.forEach(chevron => chevron.style.opacity = '1');
         }
