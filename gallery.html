@@ -46,19 +46,19 @@
             <div class="art-projects-grid" >
                 <div class="row">
                     <div class="chevronLeft"></div>
-                    <div id="column" class="pageOne">
+                    <div class="column pageOne">
                         <img id="first-one" src="images/SkatePark.png" alt="Skate Utopia" data-desc="Designed for a Skate Park, this piece features 8 separate pieces which are organized into a coherent design." onclick="displayArt(this)">
                     </div>
-                    <div id="column" class="pageOne">
+                    <div class="column pageOne">
                         <img src="images/ReverseOsmosis.jpg" alt="Reverse Osmosis Jones" data-desc="Designed for a narrative assignment, this piece tells the story of a heroic reverse osmosis jones to the rescue." onclick="displayArt(this);">
                     </div>
-                    <div id="column" class="pageOne">
+                    <div class="column pageOne">
                         <img src="images/TheSurveiller.jpg" alt="The Surveiller" data-desc="Created for a surrealism assignment, this piece depicts a person watching themselves, but are they the only ones watching?" onclick="displayArt(this);">
                     </div>
-                    <div id="column" class="pageTwo">
+                    <div class="column pageTwo">
                         <img src="images/Bob.jpg" alt="Bob" data-desc="Created for a portrait assignment in Illustrator, this is Bob the peacock." onclick="displayArt(this);">
                     </div>
-                    <div id="column" class="pageTwo">
+                    <div class="column pageTwo">
                         <img src="images/Versicarus.jpg" alt="Versicarus" data-desc="An abstract piece created with Illustrator with a made up name." onclick="displayArt(this);">
                     </div>
                     <div class="chevronRight"></div>
@@ -66,15 +66,20 @@
             </div>
             <div class="album-art-grid">
                 <div class="row">
-                    <div id="column">
+                    <div class="chevronLeft"></div>
+                    <div class="column pageOne">
                         <img id="first-two" src="images/PhaseShift.jpg" alt="Phase Shift" data-desc="Album Cover Art for the Lotus State album, Phase Shift" onclick="displayArt(this);">
                     </div>
-                    <div id="column">
+                    <div class="column pageOne">
+                        <img src="images/PhaseShift.jpg" alt="Phase Shift" data-desc="Album Cover Art for the Lotus State album, Phase Shift" onclick="displayArt(this);">
+                    </div>
+                    <div class="column pageTwo">
                         <img src="images/State.png" alt="State" data-desc="Album Cover Art for the Lotus State album, State" onclick="displayArt(this);">
                     </div>
-                    <div id="column">
+                    <div class="column pageTwo">
                         <img src="images/Lotus.jpg" alt="Lotus" data-desc="Album Cover Art for the Lotus State album, Lotus" onclick="displayArt(this);">
                     </div>
+                    <div class="chevronRight"></div>
                 </div>
             </div>
             <footer class="turn-black">
@@ -85,8 +90,8 @@
     </body>
     <script src="js/sidemenu.js"></script>
     <script>
-        var chevronLeft = document.querySelector(".chevronLeft");
-        var chevronRight = document.querySelector(".chevronRight");
+        var chevronLeft = document.querySelectorAll(".chevronLeft");
+        var chevronRight = document.querySelectorAll(".chevronRight");
         var projectsLink = document.querySelector(".projects-link");
         var albumArtLink = document.querySelector(".album-art-link");
         var projectsGrid = document.querySelector(".art-projects-grid");
@@ -95,41 +100,87 @@
         var firstImageTwo = document.getElementById("first-two");
         var pageOne = document.querySelectorAll(".pageOne");
         var pageTwo = document.querySelectorAll(".pageTwo");
+        var currentColumns = Array.from(document.querySelectorAll(".art-projects-grid .column"));
+        var currentIndex = 0;
+
+        function isMobile() {
+            return window.innerWidth < 1100;
+        }
+
         projectsLink.addEventListener("click", function () {
             projectsGrid.style.display = "flex";
             albumArtGrid.style.display = "none";
-            displayArt(firstImage);
+            currentColumns = Array.from(document.querySelectorAll(".art-projects-grid .column"));
+            currentIndex = 0;
+            displayArt(currentColumns[currentIndex].querySelector("img"));
+            if (isMobile()) {
+                updateVisibility();
+            } else {
+                showPage('pageOne');
+            }
         });
+
         albumArtLink.addEventListener("click", function () {
             projectsGrid.style.display = "none";
             albumArtGrid.style.display = "flex";
-            displayArt(firstImageTwo);
-        });
-        chevronLeft.addEventListener("click", function () {
-            showPage('pageOne');
+            currentColumns = Array.from(document.querySelectorAll(".album-art-grid .column"));
+            currentIndex = 0;
+            displayArt(currentColumns[currentIndex].querySelector("img"));
+            if (isMobile()) {
+                updateVisibility();
+            } else {
+                showPage('pageOne');
+            }
         });
 
-        chevronRight.addEventListener("click", function () {
-            showPage('pageTwo');
+        chevronLeft.forEach(chevron => {
+            chevron.addEventListener("click", function () {
+                if (isMobile()) {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        displayArt(currentColumns[currentIndex].querySelector("img"));
+                        updateVisibility();
+                    }
+                } else {
+                    showPage('pageOne');
+                }
+            });
+        });
+
+        chevronRight.forEach(chevron => {
+            chevron.addEventListener("click", function () {
+                if (isMobile()) {
+                    if (currentIndex < currentColumns.length - 1) {
+                        currentIndex++;
+                        displayArt(currentColumns[currentIndex].querySelector("img"));
+                        updateVisibility();
+                    }
+                } else {
+                    showPage('pageTwo');
+                }
+            });
         });
 
         function showPage(page) {
-            if (page === 'pageOne') {
-                chevronRight.style.opacity = "1";
-                pageOne.forEach(img => img.style.display = 'block');
-                pageTwo.forEach(img => img.style.display = 'none');
-                chevronLeft.style.opacity = "0.4";
-            } else {
-                chevronLeft.style.opacity = "1";
-                pageOne.forEach(img => img.style.display = 'none');
-                pageTwo.forEach(img => img.style.display = 'block');
-                chevronRight.style.opacity = "0.4";
+            if (!isMobile()) {
+                if (page === 'pageOne') {
+                    chevronRight.forEach(chevron => chevron.style.opacity = "1");
+                    pageOne.forEach(column => column.style.display = 'block');
+                    pageTwo.forEach(column => column.style.display = 'none');
+                    chevronLeft.forEach(chevron => chevron.style.opacity = "0.4");
+                } else {
+                    chevronLeft.forEach(chevron => chevron.style.opacity = "1");
+                    pageOne.forEach(column => column.style.display = 'none');
+                    pageTwo.forEach(column => column.style.display = 'block');
+                    chevronRight.forEach(chevron => chevron.style.opacity = "0.4");
+                }
             }
         }
+
         function displayArt(img) {
             var expandImg = document.getElementById("expandedImg");
             var imgText = document.getElementById("imgtext");
-            var imgDesc = document.getElementById("imgdesc")
+            var imgDesc = document.getElementById("imgdesc");
             var downloadLink = document.getElementById("downloadLink");
             expandImg.src = img.src;
             imgText.innerHTML = img.alt;
@@ -137,7 +188,36 @@
             downloadLink.href = img.src;
             expandImg.parentElement.style.display = "flex";
         }
-        showPage('pageOne');
+
+        function updateVisibility() {
+            currentColumns.forEach((column, index) => {
+                column.style.display = (index === currentIndex) ? 'block' : 'none';
+            });
+            chevronLeft.forEach(chevron => chevron.style.opacity = (currentIndex === 0) ? '0.4' : '1');
+            chevronRight.forEach(chevron => chevron.style.opacity = (currentIndex === currentColumns.length - 1) ? '0.4' : '1');
+        }
+
+        function showAllColumns(columns) {
+            columns.forEach(column => column.style.display = 'block');
+            chevronLeft.forEach(chevron => chevron.style.opacity = '1');
+            chevronRight.forEach(chevron => chevron.style.opacity = '1');
+        }
+
+        // Initially show the first set of images
         displayArt(firstImage);
+        if (isMobile()) {
+            updateVisibility();
+        } else {
+            showPage('pageOne');
+        }
+
+        // Reapply the mobile check on window resize
+        window.addEventListener('resize', function () {
+            if (isMobile()) {
+                updateVisibility();
+            } else {
+                showPage('pageOne');
+            }
+        });
     </script>
 </html>

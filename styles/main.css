@@ -276,20 +276,20 @@ section {
 .album-art-grid {
     display: none;
 }
-#column {
+.column {
     position: relative;
     display: flex;
     padding: 0% 0% 0% 0%;
     height: 100%;
 }
-#column img {
+.column img {
     opacity: 0.7;
     cursor: pointer;
     max-height: 90%;
     margin: auto auto;
     padding-top: 5%;
 }
-#column img:hover {
+.column img:hover {
     opacity: 1;
 }
 
