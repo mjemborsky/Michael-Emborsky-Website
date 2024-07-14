@@ -267,30 +267,29 @@ section {
     justify-content: space-around;
     width: 100%;
     height: 26%;
-    position: fixed;
+    position: absolute;
     bottom: 4%;
     left: 0;
     background-color: black;
     opacity: .8;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
 }
 .album-art-grid {
     display: none;
 }
-.column {
+#column {
     position: relative;
     display: flex;
-    padding: 0% 1% 0% 1%;
+    padding: 0% 0% 0% 0%;
     height: 100%;
 }
-.column img {
+#column img {
     opacity: 0.7;
     cursor: pointer;
     max-height: 90%;
     margin: auto auto;
+    padding-top: 5%;
 }
-.column img:hover {
+#column img:hover {
     opacity: 1;
 }
 
@@ -362,6 +361,31 @@ section {
     top: 4em;
 
 }
+
+.chevronLeft {
+    --s: 30px; /* control the shape (can be percentage) */
+    height: 90%;
+    position: relative;
+    top: 5%;
+    aspect-ratio: 2.5/5;
+    clip-path: polygon(100% 0,calc(100% - var(--s)) 0,0 50%,calc(100% - var(--s)) 100%,100% 100%,var(--s) 50%);
+    background: ghostwhite;
+}
+.chevronRight {
+    --s: 30px; /* control the shape (can be percentage) */
+    position: relative;
+    height: 90%;
+    top: 5%;
+    aspect-ratio: 2.5/5;
+    clip-path: polygon(0 0,var(--s) 0,100% 50%,var(--s) 100%,0 100%,calc(100% - var(--s)) 50%);
+    background: ghostwhite;
+}
+
+
+
+
+
+
 
 /* About Me Page */
 
