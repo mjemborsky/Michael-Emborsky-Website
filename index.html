@@ -35,39 +35,57 @@
                 <h3><i>Programmer, Illustrator, Artist</i></h3>
             </div>
             <div class="coding-title">
-                <h2 class="coding-header">Coding Projects</h2>
-                <a href="https://github.com/mjemborsky"><h3 class="coding-header-link">Link to GitHub</h3></a>
+                <a class="coding-header reverse-highlight-on-hover" href="https://github.com/mjemborsky">
+                    <h2>Coding Projects</h2>
+                    <h3>Link to Github</h3>
+                </a>
             </div>
             <div id="coding">
                 <div class="coding-column">
-                    <a href="http://lotusstate.com/">
+                    <a class="highlight-on-hover one" href="http://lotusstate.com/">
                         <div class="coding-project">
-                            <img class="preview" src="images/LotusStateWebsite.png">
-                            <h1>Website - Lotus State</h1>
-                            <p>A live website for my Artist profile, Lotus State. Features immersive animations produced with Javascript, SVGs and media queries for responsive design.</p>
+                            <div class="preview-container">
+                                <img class="preview" src="images/LotusStateWebsite.png">
+                            </div>
+                            <div class="coding-description">
+                                <h1>Website - Lotus State</h1>
+                                <p>A live website for my Artist profile, Lotus State. Features immersive animations produced with Javascript, SVGs and media queries for responsive design.</p>
+                            </div>
                         </div>
                     </a>
-                    <a href="https://github.com/mjemborsky/myCloset">
+                    <a class="highlight-on-hover two" href="https://github.com/mjemborsky/myCloset">
                         <div class="coding-project">
-                            <img class="preview" src="images/myClosetWebsite.png">
-                            <h1>myCloset</h1>
-                            <p>An iOS application that allows for a user to upload, save, and create collages of clothing items and share them with other users.</p>
+                            <div class="preview-container">
+                                <img class="preview" src="images/myClosetWebsite.png">
+                            </div>
+                            <div class="coding-description">
+                                <h1>myCloset</h1>
+                                <p>An iOS application that allows for a user to upload, save, and create collages of clothing items and share them with other users.</p>
+                            </div>
                         </div>
                     </a>
                 </div>
                 <div class="coding-column">
-                    <a href="https://github.com/mjemborsky/SoundScape">
+                    <a class="highlight-on-hover three" href="https://github.com/mjemborsky/SoundScape">
                         <div class="coding-project">
-                            <img class="preview" src="images/SoundScapeWebsite.png">
-                            <h1>SoundScape</h1>
-                            <p><i>(In Progress)</i><br>A desktop application for Mac and Windows that allows for the full customization of a user's sound elements/inputs.</p>
+                            <div class="preview-container">
+                                <img class="preview" src="images/SoundScapeWebsite.png">
+                            </div>
+                            <div class="coding-description">
+                                <h1>SoundScape</h1>
+                                <p><i>(In Progress)</i><br>A desktop application for Mac and Windows that allows for the full customization of a user's sound elements/inputs.</p>
+                            </div>
                         </div>
                     </a>
-                    <a href="https://github.com/mjemborsky/Website-Custom-Image-Sorter">
+                    <a class="highlight-on-hover four" href="https://github.com/mjemborsky/Website-Custom-Image-Sorter">
                         <div class="coding-project">
-                            <img class="preview" src="images/customImageSorter.png">
-                            <h1>Custom Image Sorter</h1>
-                            <p>A website designed for a friend in the special ed field, designed to have students be able to sort themselves in different 'zones' for a morning checklist, as well as sort various items into custom categories.</p>
+                            <div class="preview-container">
+                                <img class="preview" src="images/customImageSorter.png">
+                            </div>
+                            <div class="coding-description">
+                                <h1>Custom Image Sorter</h1>
+                                <p>A website designed for a friend in the special ed field, designed to have students be able to sort themselves in different 'zones' for a morning checklist, as well as sort various items into custom categories.</p>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -79,6 +97,38 @@
         </section>
         <script src="js/sidemenu.js"></script>
         <script>
+            reverseHighlight = document.querySelector('.reverse-highlight-on-hover');
+            reverseHighlight.addEventListener('mousemove', (e) => {
+                const rect = reverseHighlight.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                reverseHighlight.style.setProperty('--mouse-x', `${x}px`);
+                reverseHighlight.style.setProperty('--mouse-y', `${y}px`);
+            });
+
+            reverseHighlight.addEventListener('mouseleave', () => {
+                reverseHighlight.style.setProperty('--mouse-x', `50%`);
+                reverseHighlight.style.setProperty('--mouse-y', `50%`);
+            });
+
+
+            document.querySelectorAll('.highlight-on-hover').forEach((hoverDiv) => {
+                hoverDiv.addEventListener('mousemove', (e) => {
+                    const rect = hoverDiv.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    hoverDiv.style.setProperty('--mouse-x', `${x}px`);
+                    hoverDiv.style.setProperty('--mouse-y', `${y}px`);
+                });
+
+                hoverDiv.addEventListener('mouseleave', () => {
+                    hoverDiv.style.setProperty('--mouse-x', `50%`);
+                    hoverDiv.style.setProperty('--mouse-y', `50%`);
+                });
+            });
+            
             function printPDF() {
                 const iframe = document.createElement('iframe');
                 iframe.style.display = 'none';

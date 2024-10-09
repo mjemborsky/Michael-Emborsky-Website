@@ -143,12 +143,65 @@ section {
     text-decoration: none;
 }
 .coding-header {
-    position: relative;
-    padding-top: 19%;
+    position: absolute;
+    top: 33%;
     color: wheat;
     margin: 0;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    height: 20%;
+    justify-content: center;
+    border-radius: 15% / 30%;
+    background-color: rgba(43, 45, 66, 0.5); /* Base color with 50% opacity */
+    overflow: hidden;
+    transition: background-color 0.3s ease-out;
+    z-index: 1;
 }
+
+.coding-header h2, .coding-header h3 {
+    margin: 0;
+    z-index: 2;
+}
+
+.coding-header h3 {
+    padding-top: 2%;
+    font-size: 1em;
+    text-decoration: none;
+    z-index: 2;
+}
+
+/* Hover effect that increases opacity */
+.reverse-highlight-on-hover {
+    position: relative;
+    text-decoration: none;
+}
+
+.reverse-highlight-on-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(43, 45, 66, 0.8), transparent); /* Increase opacity of the existing color */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-out;
+    border-radius: inherit;
+    z-index: 0;
+}
+
+.reverse-highlight-on-hover:hover::before {
+    opacity: 1; /* Fully visible when hovered */
+}
+
+.reverse-highlight-on-hover:hover .coding-header {
+    background-color: rgba(43, 45, 66, 0.7); /* Increase the opacity of the background color */
+}
+
 
 .coding-header-link {
     position: relative;
@@ -175,62 +228,103 @@ section {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 48%;
+    width: 48.5%;
     height: 90%;
     margin: 0;
     align-items: center;
     justify-content: space-between;
 }
 
-.coding-column a {
+.coding-column a, .coding-project {
     position: relative;
-    height: 48%;
+    height: 48.5%;
     width: 100%;
     color: #2B2D42;
-    border-radius: 5% 20% 5% 20%;
-    background-color: #81A4CD;
-
+    background-color: rgba(129, 164, 205, 0.5);
+    overflow: hidden; /* Ensures hover effects stay within the shape */
+    transition: background-color 0.3s ease-out;
 }
+
+
 .coding-project {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.preview-container {
     position: relative;
-    background-color: #81A4CD;
-    color: #2B2D42;
-    border-radius: 5% 20% 5% 20%;
+    margin-left: 5%;
+    max-width: 40%;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .preview {
-    float: left;
     position: relative;
-    left: 2.5%;
-    max-width: 40%;
-    padding-top: 5%;
+    max-width: 100%;
+    max-height: 100%;
 }
-.coding-project h1 {
-    float: right;
+.coding-description {
+    position: relative;
+    height: 100%;
+    width: 50%;
+    justify-content: center;
+    padding-right: 2.5%;
+    display: flex;
+    flex-direction: column;
     margin: 0;
+    text-align: right;
+}
+.coding-description h1 {
+    margin-top: 0;
     font-size: 175%;
-    text-align: center;
-    width: 55%;
-    padding-right: 1%;
-    padding-top: 5%;
 }
-.coding-project p {
-    float: right;
-    position: relative;
-    text-align: center;
+.coding-description p {
+    margin-top: 0;
     font-size: 115%;
-    margin: 0;
-    width: 55%;
-    height: 60%;
-    padding-right: 1%;
-    padding-top: 4%;
 }
-.coding-column a:hover {
-    background-color: #A7CCED;
+.highlight-on-hover {
+    display: block;
+    position: relative;
+    text-decoration: none;
+}
+.highlight-on-hover.one, .highlight-on-hover.one .coding-project {
+    border-radius: 20% 5% 5% 5%; /* Custom border radius for projects */
+}
+.highlight-on-hover.two, .highlight-on-hover.two .coding-project {
+    border-radius: 5% 5% 5% 20%; /* Custom border radius for projects */
+}
+.highlight-on-hover.three, .highlight-on-hover.three .coding-project {
+    border-radius: 5% 20% 5% 5%; /* Custom border radius for projects */
+}
+.highlight-on-hover.four, .highlight-on-hover.four .coding-project {
+    border-radius: 5% 5% 20% 5%; /* Custom border radius for projects */
 }
 
 
+.highlight-on-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 1), transparent); /* Increase brightness by raising opacity */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-out;
+    border-radius: inherit; /* Ensures the gradient follows the shape of the div */
+}
 
+.highlight-on-hover:hover::before {
+    opacity: 1;
+}
 
+.highlight-on-hover:hover .coding-project {
+    background-color: rgba(129, 164, 205, 0.7); /* Slightly lighter on hover */
+}
 
 
 /* Art Gallery Page */
@@ -613,12 +707,6 @@ footer {
 
 
 @media screen and (max-height: 600px) {
-    .coding-project h1 {
-        padding-top: 2%;
-    }
-    .coding-project p {
-        padding-top: 2%;
-    }
     .print-button {
         padding: 0;
     }
@@ -627,10 +715,18 @@ footer {
     }
 }
 
-@media screen and (max-width: 1100px) {
-    .coding-header {
-        padding-top: 25%;
+@media screen and (max-width: 1430px) {
+    .coding-header h2 {
+        font-size: 100%;
     }
+    .coding-header h3 {
+        font-size: 70%;
+    }
+}
+
+
+
+@media screen and (max-width: 1100px) {
     .coding-project h1 {
         font-size: 120%;
     }
@@ -639,6 +735,17 @@ footer {
     }
 
 }
+
+@media screen and (max-width: 960px) {
+    .coding-header h2 {
+        font-size: 80%;
+    }
+    .coding-header h3 {
+        font-size: 50%;
+    }
+
+}
+
 
 @media screen and (max-width: 900px) {
     .coding-project h1 {
@@ -650,11 +757,11 @@ footer {
     .coding-project a {
         padding-top: 15%;
     }
-    .coding-header {
-        padding-top: 30%;
-    }
     #coding {
         width: 100%;
+    }
+    .coding-header {
+        width: 30%;
     }
 }
 
@@ -664,21 +771,15 @@ footer {
         height: 60%;
     }
     .coding-header {
-        padding-top: 25%;
+        top: 27%;
+        width: 40%;
+        height: 15%;
     }
     .coding-project h1 {
         float:right;
     }
-
-
-
 }
-@media screen and (max-width: 550px) {
-    .coding-header {
-        padding-top: 32%;
-        font-size: 1.2em;
-    }
-}
+
 
 @media screen and (max-width: 430px) {
     #coding {
@@ -699,18 +800,33 @@ footer {
         padding-top: 3%;
     }
     .coding-project {
-        margin-top: 2%;
+        border-radius: 5% 5% 5% 5%;
+    }
+    .highlight-on-hover.one {
+        border-radius: 5% 5% 5% 5%;
+    }
+    .highlight-on-hover.two {
+        border-radius: 5% 5% 5% 5%;
+    }
+    .highlight-on-hover.three {
+        border-radius: 5% 5% 5% 5%;
+    }
+    .highlight-on-hover.four {
+        border-radius: 5% 5% 5% 5%;
+    }
+    .highlight-on-hover::before {
+        display: none;
     }
     .coding-project h1 {
         padding-top: 1%;
-        padding-bottom: 2%;
+        margin-bottom: 0;
+        width: 100%;
     }
     .coding-project p {
         font-size: 70%;
-        padding-top: 0%;
+        padding-top: 2%;
         padding-right: 3%;
-        width: 50%;
-        text-align: center;
+        text-align: right;
     }
     .coding-title {
         width: 80%;
@@ -719,13 +835,12 @@ footer {
         padding-top: 4%;
     }
     .coding-header {
-        font-size: 1em;
-        padding-top: 38%;
-        padding-left: 0;
-        width: auto;
+        width: 50%;
+        top: 21%;
+        height: 10%;
     }
     .coding-title a {
-        font-size: 0.75em;
+        font-size: 1.25em;
     }
     .projects-link, .album-art-link {
         width: 30%;
