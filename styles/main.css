@@ -1,6 +1,5 @@
 /* Name: Michael Emborsky */
 
-/* Custom Color Gradients */
 html {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     max-width: 100%;
@@ -10,7 +9,11 @@ html {
     height: 100vh;
     margin: 0 auto;
 }
+body {
+    background: linear-gradient(0deg, #81A4CD 0%, #2B2D42 55%, #FFE882 60%, #A93F55 100%);
+}
 
+/*  Sidemenu (nav)  */
 header {
     left: 0;
     top: 0;
@@ -48,7 +51,6 @@ header nav ul a {
     border-radius: 100% 20% / 200% 20% ;
     border: 2px solid #0A2239;
 }
-
 #chevron {
     left: 0;
     position: fixed;
@@ -68,7 +70,6 @@ header nav ul a {
     stroke-width: 3px;
     stroke-linecap: round;
 }
-
 @keyframes spin {
     from {
         transform: rotate(0deg);
@@ -78,13 +79,11 @@ header nav ul a {
     }
 }
 .spin-animation {
-    animation: spin 0.8s linear forwards; /* Adjust the duration and timing function as needed */
+    animation: spin 0.8s linear forwards;
 }
 
-body {
-    background: linear-gradient(0deg, #81A4CD 0%, #2B2D42 55%, #FFE882 60%, #A93F55 100%);
-}
 
+/*  MAIN BODY - index.html  */
 section {
     height: 100vh;
     display: flex;
@@ -94,7 +93,6 @@ section {
     width: 100%;
     margin: 0 auto;
 }
-
 .background-bar {
     position: absolute;
     width: 100%;
@@ -128,7 +126,6 @@ section {
     font-size: 200%;
     padding-top: 1%;
 }
-
 .coding-title {
     position: fixed;
     left: 3%;
@@ -155,30 +152,25 @@ section {
     height: 20%;
     justify-content: center;
     border-radius: 15% / 30%;
-    background-color: rgba(43, 45, 66, 0.5); /* Base color with 50% opacity */
+    background-color: rgba(43, 45, 66, 0.5);
     overflow: hidden;
     transition: background-color 0.3s ease-out;
     z-index: 1;
 }
-
 .coding-header h2, .coding-header h3 {
     margin: 0;
     z-index: 2;
 }
-
 .coding-header h3 {
     padding-top: 2%;
     font-size: 1em;
     text-decoration: none;
     z-index: 2;
 }
-
-/* Hover effect that increases opacity */
 .reverse-highlight-on-hover {
     position: relative;
     text-decoration: none;
 }
-
 .reverse-highlight-on-hover::before {
     content: '';
     position: absolute;
@@ -186,23 +178,19 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(43, 45, 66, 0.8), transparent); /* Increase opacity of the existing color */
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(43, 45, 66, 0.8), transparent);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s ease-out;
     border-radius: inherit;
     z-index: 0;
 }
-
 .reverse-highlight-on-hover:hover::before {
-    opacity: 1; /* Fully visible when hovered */
+    opacity: 1;
 }
-
 .reverse-highlight-on-hover:hover .coding-header {
-    background-color: rgba(43, 45, 66, 0.7); /* Increase the opacity of the background color */
+    background-color: rgba(43, 45, 66, 0.7);
 }
-
-
 .coding-header-link {
     position: relative;
     width: 100%;
@@ -234,18 +222,15 @@ section {
     align-items: center;
     justify-content: space-between;
 }
-
 .coding-column a, .coding-project {
     position: relative;
     height: 48.5%;
     width: 100%;
     color: #2B2D42;
     background-color: rgba(129, 164, 205, 0.5);
-    overflow: hidden; /* Ensures hover effects stay within the shape */
+    overflow: hidden;
     transition: background-color 0.3s ease-out;
 }
-
-
 .coding-project {
     height: 100%;
     display: flex;
@@ -291,19 +276,17 @@ section {
     text-decoration: none;
 }
 .highlight-on-hover.one, .highlight-on-hover.one .coding-project {
-    border-radius: 20% 5% 5% 5%; /* Custom border radius for projects */
+    border-radius: 20% 5% 5% 5%;
 }
 .highlight-on-hover.two, .highlight-on-hover.two .coding-project {
-    border-radius: 5% 5% 5% 20%; /* Custom border radius for projects */
+    border-radius: 5% 5% 5% 20%;
 }
 .highlight-on-hover.three, .highlight-on-hover.three .coding-project {
-    border-radius: 5% 20% 5% 5%; /* Custom border radius for projects */
+    border-radius: 5% 20% 5% 5%;
 }
 .highlight-on-hover.four, .highlight-on-hover.four .coding-project {
-    border-radius: 5% 5% 20% 5%; /* Custom border radius for projects */
+    border-radius: 5% 5% 20% 5%;
 }
-
-
 .highlight-on-hover::before {
     content: '';
     position: absolute;
@@ -311,24 +294,63 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 1), transparent); /* Increase brightness by raising opacity */
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 1), transparent);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s ease-out;
-    border-radius: inherit; /* Ensures the gradient follows the shape of the div */
+    border-radius: inherit;
 }
-
 .highlight-on-hover:hover::before {
     opacity: 1;
 }
-
 .highlight-on-hover:hover .coding-project {
-    background-color: rgba(129, 164, 205, 0.7); /* Slightly lighter on hover */
+    background-color: rgba(129, 164, 205, 0.7);
+}
+footer {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    font-size: 0.8em;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    color: white;
+    height: 4%;
+}
+.print-button {
+    font-size: 100%;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    color: white;
+    z-index: 1;
+}
+.print-button::after  {
+  content: "";
+  background-color: #0A2239;
+  width: 100%;
+  z-index: 0;
+  position: absolute;
+  height: 100%;
+  bottom: 0.4rem;
+  left: 0.5rem;
+  transition: 0.2s;
+  opacity: 0.25;
+  color: white;
+}
+.print-button:hover:after {
+  top: 0px;
+  left: 0px;
 }
 
 
-/* Art Gallery Page */
-
+/* Art Gallery Page (gallery.html)*/
 #gallery-nav {
     width: 100%;
     top: 0;
@@ -341,7 +363,6 @@ section {
     align-items: center;
     text-decoration: none;
 }
-
 .projects-link, .album-art-link {
     position: relative;
     background-color: #81A4CD;
@@ -386,7 +407,6 @@ section {
 .column img:hover {
     opacity: 1;
 }
-
 .current-art-display {
     display: none;
     width: 100%;
@@ -404,8 +424,6 @@ section {
     max-height: 95%;
     position: relative;
 }
-  
-
 .side-art-desc {
     position: fixed;
     display: flex;
@@ -455,9 +473,8 @@ section {
     top: 4em;
 
 }
-
 .chevronLeft {
-    --s: 30px; /* control the shape (can be percentage) */
+    --s: 30px;
     height: 90%;
     position: relative;
     top: 5%;
@@ -466,7 +483,7 @@ section {
     background: ghostwhite;
 }
 .chevronRight {
-    --s: 30px; /* control the shape (can be percentage) */
+    --s: 30px;
     position: relative;
     height: 90%;
     top: 5%;
@@ -474,15 +491,14 @@ section {
     clip-path: polygon(0 0,var(--s) 0,100% 50%,var(--s) 100%,0 100%,calc(100% - var(--s)) 50%);
     background: ghostwhite;
 }
-
-
-
+.turn-black {
+    background-color: rgba(0, 0, 0, 0.8);
+}
 
 
 
 
 /* About Me Page */
-
 .aboutme-shape {
     position: absolute;
     top: 0;
@@ -494,7 +510,6 @@ section {
     border-radius: 0 0 150% 150%;
     clip-path: polygon(50% 100%, 10% 0, 90% 0);
 }
-
 .aboutme {
     position: relative;
     display: flex;
@@ -519,11 +534,9 @@ section {
     position: relative;
     max-width: 15%;
 }
-
 .aboutme a img {
     max-width: 100%;
 }
-
 .aboutme-form {
     width: 100%;
     background-color: #428ced;
@@ -542,7 +555,6 @@ section {
     top: 15%;
     max-width: 18%;
 }
-
 .bio {
     float: right;
     width: 20%;
@@ -580,8 +592,10 @@ section {
     color: black;
 }
 
-/* Form Page */
 
+
+
+/* Form Page */
 .inquiries {
     position: absolute;
     display: block;
@@ -592,7 +606,6 @@ section {
     width: 35%;
     text-align: center;
     color: wheat;
-
 }
 form {
     background: linear-gradient(0deg, #A93F55 0%, #FFE882 100%);
@@ -620,10 +633,7 @@ form input, form label, form textarea {
 }
 
 
-
-
 /* Form Confirmation Page */
-
 .confirmation {
     position: absolute;
     top: 20%;
@@ -650,62 +660,8 @@ form input, form label, form textarea {
     color: #FFD275;
 }
 
-footer {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    font-size: 0.8em;
-    justify-content: center;
-    align-items: center;
-    bottom: 0;
-    color: white;
-    height: 4%;
-}
 
-.turn-black {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.print-button {
-    font-size: 100%;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    outline: 0;
-    border: 1px solid black;
-    cursor: pointer;
-    position: relative;
-    background-color: rgba(0, 0, 0, 0);
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    color: white;
-    z-index: 1;
-}
-
-.print-button::after  {
-  content: "";
-  background-color: #0A2239;
-  width: 100%;
-  z-index: 0;
-  position: absolute;
-  height: 100%;
-  bottom: 0.4rem;
-  left: 0.5rem;
-  transition: 0.2s;
-  opacity: 0.25;
-  color: white;
-}
-
-.print-button:hover:after {
-  top: 0px;
-  left: 0px;
-}
-
-
-
-
-/* Media Queries */
-
-
+/* Media Queries for responsive design */
 @media screen and (max-height: 600px) {
     .print-button {
         padding: 0;
@@ -713,8 +669,13 @@ footer {
     .home-header {
         clip-path: polygon(25% 0%, 100% 0%, 100% 50%, 100% 100%, 25% 100%, 20% 50%);
     }
+    .coding-project h1 {
+        font-size: 120%;
+    }
+    .coding-project p {
+        font-size: 80%;
+    }
 }
-
 @media screen and (max-width: 1430px) {
     .coding-header h2 {
         font-size: 100%;
@@ -723,9 +684,6 @@ footer {
         font-size: 70%;
     }
 }
-
-
-
 @media screen and (max-width: 1100px) {
     .coding-project h1 {
         font-size: 120%;
@@ -735,7 +693,6 @@ footer {
     }
 
 }
-
 @media screen and (max-width: 960px) {
     .coding-header h2 {
         font-size: 80%;
@@ -745,8 +702,6 @@ footer {
     }
 
 }
-
-
 @media screen and (max-width: 900px) {
     .coding-project h1 {
         font-size: 100%;
@@ -764,7 +719,6 @@ footer {
         width: 30%;
     }
 }
-
 @media screen and (max-width: 666px) {
     .coding-title {
         width: 70%;
@@ -779,8 +733,6 @@ footer {
         float:right;
     }
 }
-
-
 @media screen and (max-width: 430px) {
     #coding {
         flex-direction: column;
