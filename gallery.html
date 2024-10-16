@@ -20,9 +20,15 @@
         <header>
             <nav id="main_nav">
                 <ul class="main-link">
-                        <a href="index.html">Coding Projects</a>
-                        <a href="gallery.html" class="current">Art Gallery</a>
-                        <a href="aboutme.html">Contact<br>and More</a>
+                    <a href="index.html">
+                        <div class="menu-highlight-on-hover">Coding Project</div>
+                    </a>
+                    <a href="gallery.html">
+                        <div class="menu-highlight-on-hover">Art Gallery</div>
+                    </a>
+                    <a href="aboutme.html">
+                        <div class="menu-highlight-on-hover">Contact<br>and More</div>
+                    </a>
                 </ul>
             </nav>
             <svg id="chevron" width="50" height="100">
@@ -32,8 +38,8 @@
         </header>        
         <section id="gallery">
             <nav id="gallery-nav">
-                <a class="projects-link" href="#"><div class="projects-link">Art Projects</div></a>
-                <a class="album-art-link" href="#"><div>Album Art</div></a>
+                <a class="projects-link reverse-highlight-on-hover-two" href="#"><div>Art Projects</div></a>
+                <a class="album-art-link reverse-highlight-on-hover-two" href="#"><div>Album Art</div></a>
             </nav>
             <div class="current-art-display">
                 <img id="expandedImg" >
@@ -87,137 +93,163 @@
             </footer>
         </section>
         <div class="background-bar"></div>
-    </body>
-    <script src="js/sidemenu.js"></script>
-    <script>
-        var chevronLeft = document.querySelectorAll(".chevronLeft");
-        var chevronRight = document.querySelectorAll(".chevronRight");
-        var projectsLink = document.querySelector(".projects-link");
-        var albumArtLink = document.querySelector(".album-art-link");
-        var projectsGrid = document.querySelector(".art-projects-grid");
-        var albumArtGrid = document.querySelector(".album-art-grid");
-        var firstImage = document.getElementById("first-one");
-        var firstImageTwo = document.getElementById("first-two");
-        var pageOne = document.querySelectorAll(".pageOne");
-        var pageTwo = document.querySelectorAll(".pageTwo");
-        var currentColumns = Array.from(document.querySelectorAll(".art-projects-grid .column"));
-        var currentIndex = 0;
+        <script src="js/sidemenu.js"></script>
+        <script>
+            document.querySelectorAll('.menu-highlight-on-hover').forEach((hoverItem) => {
+                hoverItem.addEventListener('mousemove', (e) => {
+                    const rect = hoverItem.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    hoverItem.style.setProperty('--mouse-x', `${x}px`);
+                    hoverItem.style.setProperty('--mouse-y', `${y}px`);
+                });
+                hoverItem.addEventListener('mouseleave', () => {
+                    hoverItem.style.setProperty('--mouse-x', `50%`);
+                    hoverItem.style.setProperty('--mouse-y', `50%`);
+                });
+            });
+            document.querySelectorAll('.reverse-highlight-on-hover-two').forEach((hoverDiv) => {
+                hoverDiv.addEventListener('mousemove', (e) => {
+                    const rect = hoverDiv.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    hoverDiv.style.setProperty('--mouse-x', `${x}px`);
+                    hoverDiv.style.setProperty('--mouse-y', `${y}px`);
+                });
+                hoverDiv.addEventListener('mouseleave', () => {
+                    hoverDiv.style.setProperty('--mouse-x', `50%`);
+                    hoverDiv.style.setProperty('--mouse-y', `50%`);
+                });
+            });
+            var chevronLeft = document.querySelectorAll(".chevronLeft");
+            var chevronRight = document.querySelectorAll(".chevronRight");
+            var projectsLink = document.querySelector(".projects-link");
+            var albumArtLink = document.querySelector(".album-art-link");
+            var projectsGrid = document.querySelector(".art-projects-grid");
+            var albumArtGrid = document.querySelector(".album-art-grid");
+            var firstImage = document.getElementById("first-one");
+            var firstImageTwo = document.getElementById("first-two");
+            var pageOne = document.querySelectorAll(".pageOne");
+            var pageTwo = document.querySelectorAll(".pageTwo");
+            var currentColumns = Array.from(document.querySelectorAll(".art-projects-grid .column"));
+            var currentIndex = 0;
 
-        function isMobile() {
-            return window.innerWidth < 1100;
-        }
-
-        projectsLink.addEventListener("click", function () {
-            projectsGrid.style.display = "flex";
-            albumArtGrid.style.display = "none";
-            currentColumns = Array.from(document.querySelectorAll(".art-projects-grid .column"));
-            currentIndex = 0;
-            displayArt(currentColumns[currentIndex].querySelector("img"));
-            if (isMobile()) {
-                updateVisibility();
-            } else {
-                showPage('pageOne');
+            function isMobile() {
+                return window.innerWidth < 1100;
             }
-        });
 
-        albumArtLink.addEventListener("click", function () {
-            projectsGrid.style.display = "none";
-            albumArtGrid.style.display = "flex";
-            currentColumns = Array.from(document.querySelectorAll(".album-art-grid .column"));
-            currentIndex = 0;
-            displayArt(currentColumns[currentIndex].querySelector("img"));
-            if (isMobile()) {
-                updateVisibility();
-            } else {
-                showPage('pageOne');
-            }
-        });
-
-        chevronLeft.forEach(chevron => {
-            chevron.addEventListener("click", function () {
+            projectsLink.addEventListener("click", function () {
+                projectsGrid.style.display = "flex";
+                albumArtGrid.style.display = "none";
+                currentColumns = Array.from(document.querySelectorAll(".art-projects-grid .column"));
+                currentIndex = 0;
+                displayArt(currentColumns[currentIndex].querySelector("img"));
                 if (isMobile()) {
-                    if (currentIndex > 0) {
-                        currentIndex--;
-                        displayArt(currentColumns[currentIndex].querySelector("img"));
-                        updateVisibility();
-                    }
+                    updateVisibility();
                 } else {
                     showPage('pageOne');
                 }
             });
-        });
 
-        chevronRight.forEach(chevron => {
-            chevron.addEventListener("click", function () {
+            albumArtLink.addEventListener("click", function () {
+                projectsGrid.style.display = "none";
+                albumArtGrid.style.display = "flex";
+                currentColumns = Array.from(document.querySelectorAll(".album-art-grid .column"));
+                currentIndex = 0;
+                displayArt(currentColumns[currentIndex].querySelector("img"));
                 if (isMobile()) {
-                    if (currentIndex < currentColumns.length - 1) {
-                        currentIndex++;
-                        displayArt(currentColumns[currentIndex].querySelector("img"));
-                        updateVisibility();
-                    }
+                    updateVisibility();
                 } else {
-                    showPage('pageTwo');
+                    showPage('pageOne');
                 }
             });
-        });
 
-        function showPage(page) {
-            if (!isMobile()) {
-                if (page === 'pageOne') {
-                    chevronRight.forEach(chevron => chevron.style.opacity = "0.8");
-                    pageOne.forEach(column => column.style.display = 'flex');
-                    pageTwo.forEach(column => column.style.display = 'none');
-                    chevronLeft.forEach(chevron => chevron.style.opacity = "0.3");
-                } else {
-                    chevronLeft.forEach(chevron => chevron.style.opacity = "0.8");
-                    pageOne.forEach(column => column.style.display = 'none');
-                    pageTwo.forEach(column => column.style.display = 'flex');
-                    chevronRight.forEach(chevron => chevron.style.opacity = "0.3");
+            chevronLeft.forEach(chevron => {
+                chevron.addEventListener("click", function () {
+                    if (isMobile()) {
+                        if (currentIndex > 0) {
+                            currentIndex--;
+                            displayArt(currentColumns[currentIndex].querySelector("img"));
+                            updateVisibility();
+                        }
+                    } else {
+                        showPage('pageOne');
+                    }
+                });
+            });
+
+            chevronRight.forEach(chevron => {
+                chevron.addEventListener("click", function () {
+                    if (isMobile()) {
+                        if (currentIndex < currentColumns.length - 1) {
+                            currentIndex++;
+                            displayArt(currentColumns[currentIndex].querySelector("img"));
+                            updateVisibility();
+                        }
+                    } else {
+                        showPage('pageTwo');
+                    }
+                });
+            });
+
+            function showPage(page) {
+                if (!isMobile()) {
+                    if (page === 'pageOne') {
+                        chevronRight.forEach(chevron => chevron.style.opacity = "0.8");
+                        pageOne.forEach(column => column.style.display = 'flex');
+                        pageTwo.forEach(column => column.style.display = 'none');
+                        chevronLeft.forEach(chevron => chevron.style.opacity = "0.3");
+                    } else {
+                        chevronLeft.forEach(chevron => chevron.style.opacity = "0.8");
+                        pageOne.forEach(column => column.style.display = 'none');
+                        pageTwo.forEach(column => column.style.display = 'flex');
+                        chevronRight.forEach(chevron => chevron.style.opacity = "0.3");
+                    }
                 }
             }
-        }
 
-        function displayArt(img) {
-            var expandImg = document.getElementById("expandedImg");
-            var imgText = document.getElementById("imgtext");
-            var imgDesc = document.getElementById("imgdesc");
-            var downloadLink = document.getElementById("downloadLink");
-            expandImg.src = img.src;
-            imgText.innerHTML = img.alt;
-            imgDesc.innerHTML = img.getAttribute("data-desc");
-            downloadLink.href = img.src;
-            expandImg.parentElement.style.display = "flex";
-        }
+            function displayArt(img) {
+                var expandImg = document.getElementById("expandedImg");
+                var imgText = document.getElementById("imgtext");
+                var imgDesc = document.getElementById("imgdesc");
+                var downloadLink = document.getElementById("downloadLink");
+                expandImg.src = img.src;
+                imgText.innerHTML = img.alt;
+                imgDesc.innerHTML = img.getAttribute("data-desc");
+                downloadLink.href = img.src;
+                expandImg.parentElement.style.display = "flex";
+            }
 
-        function updateVisibility() {
-            currentColumns.forEach((column, index) => {
-                column.style.display = (index === currentIndex) ? 'flex' : 'none';
-            });
-            chevronLeft.forEach(chevron => chevron.style.opacity = (currentIndex === 0) ? '0.4' : '1');
-            chevronRight.forEach(chevron => chevron.style.opacity = (currentIndex === currentColumns.length - 1) ? '0.4' : '1');
-        }
+            function updateVisibility() {
+                currentColumns.forEach((column, index) => {
+                    column.style.display = (index === currentIndex) ? 'flex' : 'none';
+                });
+                chevronLeft.forEach(chevron => chevron.style.opacity = (currentIndex === 0) ? '0.4' : '1');
+                chevronRight.forEach(chevron => chevron.style.opacity = (currentIndex === currentColumns.length - 1) ? '0.4' : '1');
+            }
 
-        function showAllColumns(columns) {
-            columns.forEach(column => column.style.display = 'flex');
-            chevronLeft.forEach(chevron => chevron.style.opacity = '1');
-            chevronRight.forEach(chevron => chevron.style.opacity = '1');
-        }
+            function showAllColumns(columns) {
+                columns.forEach(column => column.style.display = 'flex');
+                chevronLeft.forEach(chevron => chevron.style.opacity = '1');
+                chevronRight.forEach(chevron => chevron.style.opacity = '1');
+            }
 
-        // Initially show the first set of images
-        displayArt(firstImage);
-        if (isMobile()) {
-            updateVisibility();
-        } else {
-            showPage('pageOne');
-        }
-
-        // Reapply the mobile check on window resize
-        window.addEventListener('resize', function () {
+            // Initially show the first set of images
+            displayArt(firstImage);
             if (isMobile()) {
                 updateVisibility();
             } else {
                 showPage('pageOne');
             }
-        });
-    </script>
+
+            // Reapply the mobile check on window resize
+            window.addEventListener('resize', function () {
+                if (isMobile()) {
+                    updateVisibility();
+                } else {
+                    showPage('pageOne');
+                }
+            });
+        </script>
+    </body>
 </html>

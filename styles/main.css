@@ -36,7 +36,7 @@ header {
     justify-content: center;
     padding-left: 0;
 }
-header nav ul a {
+header nav ul a , header nav ul a div {
     width: 70%;
     height: 15%;
     display: flex;
@@ -45,11 +45,40 @@ header nav ul a {
     text-align: center;
     text-decoration: none;
     color: #0A2239;
-    background-color: #81A4CD;
+    background-color: rgba(129, 164, 205, 0.5);
     font-size: 1.3em;
     margin: 5% 0% 5% 0%;
     border-radius: 100% 20% / 200% 20% ;
-    border: 2px solid #0A2239;
+    transition: background-color 0.3s ease-out;
+    overflow: hidden;
+    position: relative;
+}
+header nav ul a div {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border: 5px solid #0A2239;
+    z-index: 2;
+}
+.menu-highlight-on-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.5), transparent);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-out;
+    border-radius: inherit;
+    z-index: -2;
+}
+.menu-highlight-on-hover:hover::before {
+    opacity: 1;
+}
+.menu-highlight-on-hover:hover {
+    background-color: rgba(129, 164, 205, 0.7);
 }
 #chevron {
     left: 0;
@@ -70,6 +99,9 @@ header nav ul a {
     stroke-width: 3px;
     stroke-linecap: round;
 }
+
+
+
 @keyframes spin {
     from {
         transform: rotate(0deg);
@@ -365,8 +397,8 @@ footer {
 }
 .projects-link, .album-art-link {
     position: relative;
-    background-color: #81A4CD;
-    width: 10%;
+    background-color: rgb(129, 164, 205, 0.6);
+    width: 20%;
     height: 75%;
     border-radius: 50% 50% 25% 25%;
     text-align: center;
@@ -376,6 +408,34 @@ footer {
     align-items: center;
     text-decoration: none;
     color: black;
+    overflow: hidden;
+    transition: background-color 0.3s ease-out;
+    z-index: 1;
+    border: solid 1px black;
+}
+.projects-link div, .album-art-link div {
+    z-index: 2; /* Ensure text stays on top of hover effect */
+    position: relative;
+}
+.reverse-highlight-on-hover-two::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(129, 164, 205, 1), transparent 40%); /* Increase opacity on hover */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-out;
+    border-radius: inherit; /* Inherit the border radius of the element */
+    z-index: 0; /* Keep hover effect behind the text */
+}
+.reverse-highlight-on-hover-two:hover::before {
+    opacity: 1; /* Show hover effect when hovering */
+}
+.reverse-highlight-on-hover-two:hover {
+    background-color: rgba(129, 164, 205, .8); /* Slightly increase the background opacity on hover */
 }
 .row {
     display: flex;
@@ -544,52 +604,58 @@ footer {
     position: absolute;
     bottom: 0%;
     clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
-    display: flex;
+    z-index: 0;
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    z-index: 1;
 }
 .picOfMe {
     position: absolute;
-    left: 29%;
-    top: 15%;
-    max-width: 18%;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 47.5%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.picOfMe img {
+    position: relative;
+    max-height: 85%;
+    max-width: 40%;
+}
+.aboutme-description {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 47.5%;
+    height: 100%;
+}
+.aboutme-description h1 {
+    margin: 0;
+    width: 40%;
 }
 .bio {
-    float: right;
-    width: 20%;
-    right: 29%;
-    position: absolute;
-    height: 40%;
-    top: 30%;
-    text-align: right;
-}
-.aboutme-form h2 {
-    padding-top: 32%;
-    bottom: 10%;
-    position: relative;
-}
+    width: 40%;
+    font-size: 125%;
+    margin-top: 5%;
+} 
 .form-link {
+    margin-top: 5%;
+}
+.form-link, .form-link div {
     display: flex;
-    width: 5%;
-    height: 5%;
+    width: 40%;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    bottom: 5%;
-}
-.form-link div {
-    width: 100%;
-    height: 100%;
     background-color: bisque;
-    opacity: .7;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-.form-link div p {
     text-decoration: none;
     color: black;
+    border-radius: 50%/ 25%;
 }
 
 
@@ -611,13 +677,13 @@ form {
     background: linear-gradient(0deg, #A93F55 0%, #FFE882 100%);
     clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
     width: 69%;
-    margin: 0 0;
+    margin: 0 auto;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 form input, form label, form textarea {
@@ -630,6 +696,7 @@ form input, form label, form textarea {
     border: 2px solid #ccc;
     border-radius: 4px;
     resize: none;
+    margin-bottom: 1%;
 }
 
 
@@ -683,6 +750,9 @@ form input, form label, form textarea {
     .coding-header h3 {
         font-size: 70%;
     }
+    .bio {
+        font-size: 100%;
+    }
 }
 @media screen and (max-width: 1100px) {
     .coding-project h1 {
@@ -699,6 +769,9 @@ form input, form label, form textarea {
     }
     .coding-header h3 {
         font-size: 50%;
+    }
+    .bio {
+        font-size: 80%;
     }
 
 }
@@ -731,6 +804,9 @@ form input, form label, form textarea {
     }
     .coding-project h1 {
         float:right;
+    }
+    .aboutme-description {
+        margin: 0;
     }
 }
 @media screen and (max-width: 430px) {

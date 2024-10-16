@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
           header.style.width = '70%';
           chevron.style.left = '70%';
         } else {
-          header.style.width = '20%';
-          chevron.style.left = '20%';
+          header.style.width = '25%';
+          chevron.style.left = '25%';
         }
         isExpanded = true;
         chevronPointer.setAttribute('transform', `rotate(180 25 50)`);
@@ -63,5 +63,5 @@ document.addEventListener('DOMContentLoaded', function() {
       chevronPointer.style.transition = 'transform .5s ease-in-out';
       links.style.transition = 'display 1s ease-in-out';
     });
-  });
+});
   

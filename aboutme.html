@@ -14,9 +14,15 @@
         <header>
             <nav id="main_nav">
                 <ul class="main-link">
-                    <a href="index.html">Coding Projects</a>
-                    <a href="gallery.html">Art Gallery</a>
-                    <a href="aboutme.html" class="current">Contact<br>and More</a>
+                    <a href="index.html">
+                        <div class="menu-highlight-on-hover">Coding Project</div>
+                    </a>
+                    <a href="gallery.html">
+                        <div class="menu-highlight-on-hover">Art Gallery</div>
+                    </a>
+                    <a href="aboutme.html">
+                        <div class="menu-highlight-on-hover">Contact<br>and More</div>
+                    </a>
                 </ul>
             </nav>
             <svg id="chevron" width="50" height="100">
@@ -32,19 +38,37 @@
                 </div>
             </div>
             <div class="aboutme-form">
-                <h1>About Me</h1>
-                <img class="picOfMe" src="images/myself.jpg"> 
-                <p class="bio">Born in Austria, I lived a very mobile early life, growing up overseas in various countries like Morocco, Senegal, Ecuador, and attending high school in Abu Dhabi, UAE. For these experiences I am very grateful, and think that they have helped me develop a broader and more inclusive perspective.</p>
-                <h2>Click the button below to send me an email</h2>
-                <a class="form-link" href="form.html">
-                    <div><p>Email</p></div>
-                </a>
+                <div class="picOfMe">
+                    <img src="images/myself.jpg"> 
+                </div>
+                <div class="aboutme-description">
+                    <h1>About Me</h1>
+                    <p class="bio">Born in Austria, I lived a very mobile early life, growing up overseas in various countries like Morocco, Senegal, Ecuador, and attending high school in Abu Dhabi, UAE. For these experiences I am very grateful, and think that they have helped me develop a broader and more inclusive perspective.</p>
+                    <a class="form-link" href="form.html">
+                        <div><p>Send Me An Email</p></div>
+                    </a>
+                </div>
             </div>
             <footer>
                 &copy; Michael Emborsky -- michaelemborsky@gmail.com
             </footer>
         </section>
         <div class="background-bar"></div>
+        <script src="js/sidemenu.js"></script>
+        <script>
+            document.querySelectorAll('.menu-highlight-on-hover').forEach((hoverItem) => {
+                hoverItem.addEventListener('mousemove', (e) => {
+                    const rect = hoverItem.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    hoverItem.style.setProperty('--mouse-x', `${x}px`);
+                    hoverItem.style.setProperty('--mouse-y', `${y}px`);
+                });
+                hoverItem.addEventListener('mouseleave', () => {
+                    hoverItem.style.setProperty('--mouse-x', `50%`);
+                    hoverItem.style.setProperty('--mouse-y', `50%`);
+                });
+            });
+        </script>
     </body>
-    <script src="js/sidemenu.js"></script>
 </html>

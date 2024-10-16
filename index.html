@@ -19,13 +19,19 @@
         <header>
             <nav id="main_nav">
                 <ul class="main-link">
-                    <a href="index.html" class="current">Coding Projects</a>
-                    <a href="gallery.html">Art Gallery</a>
-                    <a href="aboutme.html">Contact<br>and More</a>
+                    <a href="index.html" class="current">
+                        <div class="menu-highlight-on-hover">Coding Project</div>
+                    </a>
+                    <a href="gallery.html">
+                        <div class="menu-highlight-on-hover">Art Gallery</div>
+                    </a>
+                    <a href="aboutme.html">
+                        <div class="menu-highlight-on-hover">Contact<br>and More</div>
+                    </a>
                 </ul>
             </nav>
             <svg id="chevron" width="50" height="100">
-                <polygon points="50 50, 0 100, 0 0" fill="#81A4CD" class="main-triangle"></polygon>
+                <polygon points="50 50, 0 100, 0 0" fill="#81A4CD" class="main-triangle menu-highlight-on-hover"></polygon>
                 <polygon points="50 50, 0 70, 0 30" fill="#F29CA3" class="pointer"></polygon>
             </svg>
         </header>     
@@ -97,6 +103,19 @@
         </section>
         <script src="js/sidemenu.js"></script>
         <script>
+            document.querySelectorAll('.menu-highlight-on-hover').forEach((hoverItem) => {
+                hoverItem.addEventListener('mousemove', (e) => {
+                    const rect = hoverItem.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    hoverItem.style.setProperty('--mouse-x', `${x}px`);
+                    hoverItem.style.setProperty('--mouse-y', `${y}px`);
+                });
+                hoverItem.addEventListener('mouseleave', () => {
+                    hoverItem.style.setProperty('--mouse-x', `50%`);
+                    hoverItem.style.setProperty('--mouse-y', `50%`);
+                });
+            });
             reverseHighlight = document.querySelector('.reverse-highlight-on-hover');
             reverseHighlight.addEventListener('mousemove', (e) => {
                 const rect = reverseHighlight.getBoundingClientRect();
@@ -106,13 +125,10 @@
                 reverseHighlight.style.setProperty('--mouse-x', `${x}px`);
                 reverseHighlight.style.setProperty('--mouse-y', `${y}px`);
             });
-
             reverseHighlight.addEventListener('mouseleave', () => {
                 reverseHighlight.style.setProperty('--mouse-x', `50%`);
                 reverseHighlight.style.setProperty('--mouse-y', `50%`);
             });
-
-
             document.querySelectorAll('.highlight-on-hover').forEach((hoverDiv) => {
                 hoverDiv.addEventListener('mousemove', (e) => {
                     const rect = hoverDiv.getBoundingClientRect();
@@ -122,13 +138,11 @@
                     hoverDiv.style.setProperty('--mouse-x', `${x}px`);
                     hoverDiv.style.setProperty('--mouse-y', `${y}px`);
                 });
-
                 hoverDiv.addEventListener('mouseleave', () => {
                     hoverDiv.style.setProperty('--mouse-x', `50%`);
                     hoverDiv.style.setProperty('--mouse-y', `50%`);
                 });
             });
-            
             function printPDF() {
                 const iframe = document.createElement('iframe');
                 iframe.style.display = 'none';
