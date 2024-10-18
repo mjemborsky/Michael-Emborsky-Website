@@ -566,7 +566,7 @@ footer {
     height: 70%;
     display: flex;
     justify-content: center;
-    background: linear-gradient(0deg, #2B2D42 23%, #81A4CD 100%);
+    background: linear-gradient(0deg, #4E598C 23%, #81A4CD 100%);
     border-radius: 0 0 150% 150%;
     clip-path: polygon(50% 100%, 10% 0, 90% 0);
 }
@@ -575,7 +575,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: wheat;
+    color: black;
     font-size: 150%;
     width: 60%;
     margin: 0;
@@ -599,7 +599,7 @@ footer {
 }
 .aboutme-form {
     width: 100%;
-    background-color: #428ced;
+    background-color: #81A4CD;
     height: 60%;
     position: absolute;
     bottom: 0%;
@@ -623,6 +623,8 @@ footer {
     position: relative;
     max-height: 85%;
     max-width: 40%;
+    border-radius: 5%;
+    border: solid 1px black;
 }
 .aboutme-description {
     position: absolute;
@@ -647,17 +649,47 @@ footer {
 .form-link {
     margin-top: 5%;
 }
-.form-link, .form-link div {
+.form-link {
+    margin-top: 5%;
     display: flex;
     width: 40%;
     justify-content: center;
     align-items: center;
-    background-color: bisque;
+    background-color: rgba(255, 232, 130, 0.5);
     text-decoration: none;
     color: black;
-    border-radius: 50%/ 25%;
+    border-radius: 15% / 40%;
+    position: relative; /* Make this element the positioning context for ::before */
+    overflow: hidden; /* Ensure the highlight stays within the boundaries */
 }
 
+.form-link div {
+    width: 100%;
+    text-align: center;
+}
+
+.link-to-form-highlight-on-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 232, 130, 1), transparent 40%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-out;
+    border-radius: inherit;
+    z-index: -1; /* Ensure the background stays behind the text */
+}
+
+.link-to-form-highlight-on-hover:hover::before {
+    opacity: 1;
+}
+
+.link-to-form-highlight-on-hover:hover {
+    background-color: rgba(255, 232, 130, 0.7);
+}
 
 
 
@@ -669,9 +701,10 @@ footer {
     margin: 0 auto;
     top: 15%;
     z-index: 2;
-    width: 35%;
+    width: 40%;
     text-align: center;
-    color: wheat;
+    color: black;
+    text-emphasis: none;
 }
 form {
     background: linear-gradient(0deg, #A93F55 0%, #FFE882 100%);
@@ -686,12 +719,32 @@ form {
     position: relative;
     bottom: 0;
 }
-form input, form label, form textarea {
-    padding: 0.5%;
+form input, form textarea {
+    width: 40%; /* Ensure the input and textarea take the full width */
+    margin: 0.5%;
+    padding: 1%; /* Adjust padding for better spacing */
+    border: 2px solid #ccc; /* Subtle border */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    background-color: rgba(78, 89, 140, 0.6); /* Light background color */
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions for hover effects */
+    font-size: 1rem; /* Slightly larger font for readability */
+    outline: none; /* Remove default outline */
+    font-family: Arial, sans-serif;
+}
+form input:focus, form textarea:focus {
+    background-color: rgba(78, 89, 140, 1); /* Brighten background on focus */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhance shadow on focus */
+}
+form input:hover, form textarea:hover {
+    background-color: #f0f0f0; /* Subtle hover background change */
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1); /* Slightly increase shadow on hover */
+    color: black;
 }
 #message {
     width: 60%;
-    height: 40%;
+    height: 35%;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -791,6 +844,9 @@ form input, form label, form textarea {
     .coding-header {
         width: 30%;
     }
+    form input, form textarea {
+        margin: 1.5%;
+    }
 }
 @media screen and (max-width: 666px) {
     .coding-title {
@@ -807,6 +863,9 @@ form input, form label, form textarea {
     }
     .aboutme-description {
         margin: 0;
+    }
+    .inquiries {
+        font-size: 100%;
     }
 }
 @media screen and (max-width: 430px) {

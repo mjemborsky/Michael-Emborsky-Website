@@ -44,8 +44,8 @@
                 <div class="aboutme-description">
                     <h1>About Me</h1>
                     <p class="bio">Born in Austria, I lived a very mobile early life, growing up overseas in various countries like Morocco, Senegal, Ecuador, and attending high school in Abu Dhabi, UAE. For these experiences I am very grateful, and think that they have helped me develop a broader and more inclusive perspective.</p>
-                    <a class="form-link" href="form.html">
-                        <div><p>Send Me An Email</p></div>
+                    <a class="form-link link-to-form-highlight-on-hover" href="form.html">
+                        <div><p>Send me an Email</p></div>
                     </a>
                 </div>
             </div>
@@ -56,6 +56,18 @@
         <div class="background-bar"></div>
         <script src="js/sidemenu.js"></script>
         <script>
+            formLink = document.querySelector('.link-to-form-highlight-on-hover');
+            formLink.addEventListener('mousemove', (e) => {
+                const rect = formLink.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                formLink.style.setProperty('--mouse-x', `${x}px`);
+                formLink.style.setProperty('--mouse-y', `${y}px`);
+            });
+            formLink.addEventListener('mouseleave', () => {
+                formLink.style.setProperty('--mouse-x', `50%`);
+                formLink.style.setProperty('--mouse-y', `50%`);
+            });
             document.querySelectorAll('.menu-highlight-on-hover').forEach((hoverItem) => {
                 hoverItem.addEventListener('mousemove', (e) => {
                     const rect = hoverItem.getBoundingClientRect();
