@@ -34,11 +34,11 @@
             <div class="aboutme-shape"></div>
             <h2 class="inquiries">For inquiries, please fill out the form below with your name, email, email subject and message.</h2>
             <div class="aboutme-form">
-                <form action="formSent.html" method="get">
-                    <input type="text" id="name" placeholder="Enter your name" autofocus required>
-                    <input type="text" id="subject" placeholder="Enter the subject" required>
-                    <input type="email" id="email" placeholder="Enter your email" required>
-                    <textarea id="message" placeholder="Enter your message" rows="5" cols="30" required></textarea>
+                <form id= "contact-form">
+                    <input type="text" id="name" name="from_name" placeholder="Enter your name" autofocus required>
+                    <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
+                    <input type="email" id="email" name="from_email" placeholder="Enter your email" required>
+                    <textarea id="message" name="message" placeholder="Enter your message" rows="5" cols="30" required></textarea>
                     <input type="submit" value="Send" id="submitButton">
                 </form>
             </div>
@@ -48,6 +48,14 @@
         </section>
         <div class="background-bar"></div>
         <script src="js/sidemenu.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function() {
+                emailjs.init({
+                  publicKey: "7k92QpPWVEwbPqbZC",
+                });
+            })();
+        </script>
         <script>
             document.querySelectorAll('.menu-highlight-on-hover').forEach((hoverItem) => {
                 hoverItem.addEventListener('mousemove', (e) => {
@@ -61,6 +69,18 @@
                     hoverItem.style.setProperty('--mouse-x', `50%`);
                     hoverItem.style.setProperty('--mouse-y', `50%`);
                 });
+            });
+        </script>
+        <script type="text/javascript">
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault(); 
+                emailjs.sendForm('service_63ugnpn', 'template_5bhkzwo', this)
+                    .then(function() {
+                        alert('Email sent successfully!');
+                    }, function(error) {
+                        alert('Failed to send email: ' + JSON.stringify(error));
+                    });
+                window.location.href = 'https://mjemborsky.com/formSent.html';
             });
         </script>
     </body>

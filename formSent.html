@@ -34,7 +34,7 @@
             <div class="aboutme-shape"></div>
             <div class="aboutme-form"></div>  
             <p class="confirmation">Thanks for the email! I will read it soon and get back to you.</p>
-            <a href="index.html" class="back-to-home-link"><br><p>Back to Homepage</p></a>
+            <a href="index.html" class="back-to-home-link"><p>Back to Homepage</p></a>
             <footer>
                 &copy; Michael Emborsky -- michaelemborsky@gmail.com
             </footer>
@@ -42,6 +42,18 @@
         <div class="background-bar"></div>
         <script src="js/sidemenu.js"></script>
         <script>
+            const backToHomeHover = document.querySelector('.back-to-home-link');
+            backToHomeHover.addEventListener('mousemove', (e) => {
+                const rect = backToHomeHover.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                backToHomeHover.style.setProperty('--mouse-x', `${x}px`);
+                backToHomeHover.style.setProperty('--mouse-y', `${y}px`);
+            });
+            backToHomeHover.addEventListener('mouseleave', () => {
+                backToHomeHover.style.setProperty('--mouse-x', `50%`);
+                backToHomeHover.style.setProperty('--mouse-y', `50%`);
+            });
             document.querySelectorAll('.menu-highlight-on-hover').forEach((hoverItem) => {
                 hoverItem.addEventListener('mousemove', (e) => {
                     const rect = hoverItem.getBoundingClientRect();
